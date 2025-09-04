@@ -1,0 +1,129 @@
+---
+const navItems = [
+  { name: 'Inicio', href: '/' },
+  { name: 'Servicios', href: '/servicios' },
+  { name: 'Proyectos', href: '/proyectos' },
+  { name: 'Contacto', href: '/contacto' }
+];
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="header">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <nav class="flex items-center justify-between h-16 lg:h-20">
+      <!-- Logo -->
+      <div class="flex-shrink-0">
+        <a href="/" class="flex items-center space-x-2 group">
+          <div class="w-8 h-8 bg-gradient-to-br from-primary-400 to-primary-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
+            <span class="text-white font-bold text-sm">D</span>
+          </div>
+          <span class="text-xl font-bold text-white group-hover:text-primary-400 transition-colors duration-200">
+            Davod
+          </span>
+        </a>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center space-x-8">
+        {navItems.map((item) => (
+          <a 
+            href={item.href}
+            class="text-gray-300 hover:text-white transition-colors duration-200 font-medium relative group"
+          >
+            {item.name}
+            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-400 transition-all duration-200 group-hover:w-full"></span>
+          </a>
+        ))}
+      </div>
+
+      <!-- CTA Button -->
+      <div class="hidden md:flex items-center">
+        <a 
+          href="/contacto"
+          class="bg-primary-600 hover:bg-primary-700 text-white px-6 py-2.5 rounded-lg font-medium transition-all duration-200 hover:scale-105 hover:shadow-lg hover:shadow-primary-600/25"
+        >
+          Hablemos
+        </a>
+      </div>
+
+      <!-- Mobile menu button -->
+      <div class="md:hidden">
+        <button 
+          type="button" 
+          class="text-gray-300 hover:text-white transition-colors duration-200"
+          id="mobile-menu-button"
+          aria-label="Abrir menú"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Mobile Navigation -->
+  <div class="md:hidden hidden" id="mobile-menu">
+    <div class="px-4 pt-2 pb-6 space-y-4 bg-dark-900/95 backdrop-blur-xl border-t border-gray-800">
+      {navItems.map((item) => (
+        <a 
+          href={item.href}
+          class="block text-gray-300 hover:text-white transition-colors duration-200 font-medium py-2"
+        >
+          {item.name}
+        </a>
+      ))}
+      <a 
+        href="/contacto"
+        class="block bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-medium transition-all duration-200 text-center mt-4"
+      >
+        Hablemos
+      </a>
+    </div>
+  </div>
+</header>
+
+<style>
+  /* Glassy header effect */
+  #header {
+    background: rgba(2, 6, 23, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Enhanced glassy effect on scroll */
+  #header.scrolled {
+    background: rgba(2, 6, 23, 0.95);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+</style>
+
+<script>
+  // Header scroll effect
+  const header = document.getElementById('header');
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      header?.classList.add('scrolled');
+    } else {
+      header?.classList.remove('scrolled');
+    }
+  });
+
+  // Mobile menu toggle
+  mobileMenuButton?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+  });
+
+  // Close mobile menu when clicking on a link
+  const mobileLinks = mobileMenu?.querySelectorAll('a');
+  mobileLinks?.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.add('hidden');
+    });
+  });
+</script>

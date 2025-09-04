@@ -1,0 +1,73 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Services from '../components/Services.astro';
+import About from '../components/About.astro';
+import Projects from '../components/Projects.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout 
+  title="Davod - Desarrollo Web Profesional | Soluciones Digitales Innovadoras"
+  description="Especialistas en desarrollo web moderno, apps móviles y consultoría digital. Creamos experiencias digitales excepcionales que impulsan tu negocio."
+>
+  <Header />
+  <main>
+    <Hero />
+    <Services />
+    <About />
+    <Projects />
+    <Contact />
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  /* Global animations */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from { 
+      opacity: 0; 
+      transform: translateY(30px); 
+    }
+    to { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
+  }
+
+  /* Apply animations to sections */
+  section {
+    animation: fadeIn 0.8s ease-out;
+  }
+
+  /* Smooth scrolling for the entire page */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0f172a;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #0ea5e9;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #0284c7;
+  }
+</style>
+</Layout>

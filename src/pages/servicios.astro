@@ -1,0 +1,236 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const services = [
+  {
+    id: 'desarrollo-web',
+    icon: `<svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+    </svg>`,
+    title: "Desarrollo Web",
+    subtitle: "Aplicaciones web modernas y escalables",
+    description: "Creamos aplicaciones web de alto rendimiento utilizando las tecnologías más avanzadas del mercado. Desde sitios corporativos hasta plataformas complejas de e-commerce.",
+    features: [
+      "Desarrollo Frontend (React, Vue, Astro)",
+      "Desarrollo Backend (Node.js, Python, PHP)",
+      "Bases de datos (PostgreSQL, MongoDB)",
+      "APIs REST y GraphQL",
+      "Optimización SEO avanzada",
+      "Integración de terceros"
+    ],
+    technologies: ["React", "Vue.js", "Astro", "Node.js", "TypeScript", "Tailwind CSS"],
+    price: "Desde 2.500€"
+  },
+  {
+    id: 'apps-moviles',
+    icon: `<svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+    </svg>`,
+    title: "Aplicaciones Móviles",
+    subtitle: "Apps nativas e híbridas para iOS y Android",
+    description: "Desarrollamos aplicaciones móviles que ofrecen experiencias nativas excepcionales, optimizadas para cada plataforma y diseñadas para el éxito en las tiendas de aplicaciones.",
+    features: [
+      "Desarrollo nativo iOS/Android",
+      "Apps híbridas con React Native",
+      "Progressive Web Apps (PWA)",
+      "Integración con APIs",
+      "Push notifications",
+      "Publicación en stores"
+    ],
+    technologies: ["React Native", "Flutter", "Swift", "Kotlin", "Expo", "Firebase"],
+    price: "Desde 4.000€"
+  },
+  {
+    id: 'diseno',
+    icon: `<svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z"></path>
+    </svg>`,
+    title: "UI/UX Design",
+    subtitle: "Diseño centrado en el usuario",
+    description: "Creamos interfaces intuitivas y experiencias de usuario memorables que no solo se ven increíbles, sino que convierten visitantes en clientes leales.",
+    features: [
+      "Research y análisis de usuarios",
+      "Wireframing y prototyping",
+      "Design systems escalables",
+      "Testing de usabilidad",
+      "Optimización de conversiones",
+      "Branding digital"
+    ],
+    technologies: ["Figma", "Adobe XD", "Sketch", "Principle", "InVision", "Miro"],
+    price: "Desde 1.500€"
+  },
+  {
+    id: 'consultoria',
+    icon: `<svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+    </svg>`,
+    title: "Consultoría Digital",
+    subtitle: "Estrategia y optimización digital",
+    description: "Analizamos tu presencia digital actual y diseñamos estrategias personalizadas para maximizar tu ROI y acelerar el crecimiento de tu negocio online.",
+    features: [
+      "Auditoría digital completa",
+      "Estrategia SEO/SEM",
+      "Optimización de conversiones",
+      "Analytics e insights",
+      "Automatización de procesos",
+      "Formación de equipos"
+    ],
+    technologies: ["Google Analytics", "SEMrush", "Hotjar", "Zapier", "HubSpot", "Salesforce"],
+    price: "Desde 800€"
+  }
+];
+---
+
+<Layout 
+  title="Servicios de Desarrollo Web | Davod"
+  description="Servicios profesionales de desarrollo web, apps móviles, UI/UX design y consultoría digital. Soluciones tecnológicas que impulsan tu negocio."
+>
+  <Header />
+  
+  <main class="pt-20">
+    <!-- Hero Section -->
+    <section class="py-20 lg:py-32 relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-br from-dark-900 via-dark-950 to-black"></div>
+      
+      <div class="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
+          <span class="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+            Servicios que
+          </span>
+          <br>
+          <span class="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">
+            Transforman Negocios
+          </span>
+        </h1>
+        <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          Soluciones digitales completas diseñadas para impulsar tu crecimiento 
+          y destacar en el mercado digital actual.
+        </p>
+      </div>
+    </section>
+
+    <!-- Services Detail -->
+    <section class="py-20 relative">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="space-y-24">
+          {services.map((service, index) => (
+            <div 
+              id={service.id}
+              class={`grid grid-cols-1 lg:grid-cols-2 gap-16 items-center ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}
+            >
+              <!-- Content -->
+              <div class={index % 2 === 1 ? 'lg:col-start-2' : ''}>
+                <div class="text-primary-400 mb-6">
+                  <Fragment set:html={service.icon} />
+                </div>
+                
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">
+                  {service.title}
+                </h2>
+                
+                <p class="text-xl text-primary-300 mb-6">
+                  {service.subtitle}
+                </p>
+                
+                <p class="text-gray-300 mb-8 leading-relaxed text-lg">
+                  {service.description}
+                </p>
+
+                <!-- Features -->
+                <div class="mb-8">
+                  <h3 class="text-lg font-semibold text-white mb-4">¿Qué incluye?</h3>
+                  <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    {service.features.map((feature) => (
+                      <li class="flex items-center text-gray-300">
+                        <svg class="w-5 h-5 text-primary-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                          <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                        </svg>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <!-- Technologies -->
+                <div class="mb-8">
+                  <h3 class="text-lg font-semibold text-white mb-4">Tecnologías</h3>
+                  <div class="flex flex-wrap gap-2">
+                    {service.technologies.map((tech) => (
+                      <span class="px-3 py-1 bg-primary-600/20 text-primary-300 text-sm rounded-full border border-primary-600/30">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <!-- Price and CTA -->
+                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                  <div>
+                    <p class="text-2xl font-bold text-primary-400">{service.price}</p>
+                    <p class="text-sm text-gray-400">Precio orientativo</p>
+                  </div>
+                  <a 
+                    href="/contacto"
+                    class="bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-200 hover:scale-105 hover:shadow-xl hover:shadow-primary-600/25"
+                  >
+                    Solicitar presupuesto
+                  </a>
+                </div>
+              </div>
+
+              <!-- Visual -->
+              <div class={`relative ${index % 2 === 1 ? 'lg:col-start-1' : ''}`}>
+                <div class="bg-gradient-to-br from-dark-800 to-dark-900 border border-gray-700 rounded-2xl p-8 relative overflow-hidden">
+                  <!-- Background pattern -->
+                  <div class="absolute inset-0 opacity-10">
+                    <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0); background-size: 20px 20px;"></div>
+                  </div>
+                  
+                  <div class="relative z-10 h-64 flex items-center justify-center">
+                    <div class="text-primary-400 opacity-50">
+                      <Fragment set:html={service.icon} />
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Floating elements -->
+                <div class="absolute -top-4 -right-4 w-20 h-20 bg-primary-600/20 rounded-full blur-xl animate-float"></div>
+                <div class="absolute -bottom-4 -left-4 w-16 h-16 bg-primary-400/20 rounded-full blur-xl animate-float" style="animation-delay: -2s;"></div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 relative">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="bg-gradient-to-r from-primary-600 to-primary-700 rounded-3xl p-12 relative overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-r from-primary-600/90 to-primary-700/90"></div>
+          <div class="relative z-10">
+            <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6">
+              ¿Listo para comenzar tu proyecto?
+            </h2>
+            <p class="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
+              Hablemos sobre cómo podemos ayudarte a alcanzar tus objetivos digitales.
+            </p>
+            <a 
+              href="/contacto"
+              class="inline-flex items-center bg-white text-primary-600 hover:bg-gray-100 px-8 py-4 rounded-xl font-semibold transition-all duration-200 hover:scale-105 hover:shadow-xl"
+            >
+              Contactar ahora
+              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</Layout>

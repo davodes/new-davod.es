@@ -1,0 +1,123 @@
+---
+const services = [
+  {
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+    </svg>`,
+    title: "Desarrollo Web",
+    description: "Aplicaciones web modernas y escalables utilizando las últimas tecnologías como React, Vue, Astro y Node.js.",
+    features: ["SPA & SSR", "API REST", "Responsive Design", "SEO Optimizado"]
+  },
+  {
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+    </svg>`,
+    title: "Apps Móviles",
+    description: "Desarrollo de aplicaciones móviles nativas y híbridas para iOS y Android con experiencia de usuario excepcional.",
+    features: ["React Native", "Flutter", "PWA", "App Store Deploy"]
+  },
+  {
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z"></path>
+    </svg>`,
+    title: "UI/UX Design",
+    description: "Diseño de interfaces intuitivas y experiencias de usuario que convierten visitantes en clientes satisfechos.",
+    features: ["Figma Design", "Prototyping", "User Research", "Design Systems"]
+  },
+  {
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+    </svg>`,
+    title: "Consultoría Digital",
+    description: "Estrategia digital completa para optimizar tu presencia online y maximizar el retorno de inversión.",
+    features: ["SEO/SEM", "Analytics", "Performance", "Growth Hacking"]
+  },
+  {
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path>
+    </svg>`,
+    title: "DevOps & Cloud",
+    description: "Infraestructura escalable en la nube con CI/CD automatizado para deployments seguros y eficientes.",
+    features: ["AWS/Azure", "Docker", "CI/CD", "Monitoring"]
+  },
+  {
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+    </svg>`,
+    title: "Optimización",
+    description: "Mejora del rendimiento web, velocidad de carga y experiencia de usuario para maximizar conversiones.",
+    features: ["Core Web Vitals", "Lighthouse 100", "CDN Setup", "Caching"]
+  }
+];
+---
+
+<section class="py-20 lg:py-32 relative">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
+        <span class="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+          Servicios que
+        </span>
+        <br>
+        <span class="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">
+          Transforman Negocios
+        </span>
+      </h2>
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+        Ofrecemos soluciones digitales completas que combinan tecnología de vanguardia 
+        con estrategia empresarial para impulsar tu crecimiento.
+      </p>
+    </div>
+
+    <!-- Services Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {services.map((service, index) => (
+        <div 
+          class="group bg-dark-900/50 backdrop-blur-sm border border-gray-800 rounded-2xl p-8 hover:bg-dark-800/50 hover:border-primary-600/50 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-primary-600/10"
+          style={`animation-delay: ${index * 0.1}s`}
+        >
+          <!-- Icon -->
+          <div class="text-primary-400 mb-6 group-hover:text-primary-300 transition-colors duration-200">
+            <Fragment set:html={service.icon} />
+          </div>
+
+          <!-- Title -->
+          <h3 class="text-xl font-bold text-white mb-4 group-hover:text-primary-100 transition-colors duration-200">
+            {service.title}
+          </h3>
+
+          <!-- Description -->
+          <p class="text-gray-300 mb-6 leading-relaxed">
+            {service.description}
+          </p>
+
+          <!-- Features -->
+          <ul class="space-y-2">
+            {service.features.map((feature) => (
+              <li class="flex items-center text-sm text-gray-400">
+                <svg class="w-4 h-4 text-primary-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                {feature}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <!-- CTA Section -->
+    <div class="text-center mt-16">
+      <a 
+        href="/servicios"
+        class="inline-flex items-center text-primary-400 hover:text-primary-300 font-semibold transition-colors duration-200 group"
+      >
+        Ver todos los servicios
+        <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

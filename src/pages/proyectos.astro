@@ -1,0 +1,289 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const projects = [
+  {
+    title: "TechCorp E-commerce",
+    category: "E-commerce",
+    description: "Plataforma de comercio electrónico completa con gestión de inventario, sistema de pagos integrado y panel de administración avanzado.",
+    image: "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    tags: ["React", "Node.js", "Stripe", "MongoDB", "AWS"],
+    results: [
+      "300% aumento en conversiones",
+      "50% reducción en tiempo de carga",
+      "95% satisfacción del usuario"
+    ],
+    link: "#",
+    featured: true
+  },
+  {
+    title: "FinanceApp Mobile",
+    category: "Fintech",
+    description: "Aplicación móvil para gestión financiera personal con IA para análisis de gastos y recomendaciones personalizadas.",
+    image: "https://images.pexels.com/photos/590020/pexels-photo-590020.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    tags: ["React Native", "Python", "TensorFlow", "PostgreSQL"],
+    results: [
+      "100K+ descargas en 6 meses",
+      "4.8★ rating en App Store",
+      "40% mejora en ahorro usuarios"
+    ],
+    link: "#",
+    featured: true
+  },
+  {
+    title: "DataViz Dashboard",
+    category: "SaaS",
+    description: "Panel de control empresarial con visualización de datos en tiempo real, reportes automatizados y alertas inteligentes.",
+    image: "https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    tags: ["Vue.js", "D3.js", "PostgreSQL", "Docker", "Redis"],
+    results: [
+      "80% reducción en tiempo de análisis",
+      "Real-time data processing",
+      "Enterprise-grade security"
+    ],
+    link: "#",
+    featured: false
+  },
+  {
+    title: "B2B Marketplace",
+    category: "Marketplace",
+    description: "Plataforma de conexión entre empresas con sistema de matching inteligente, gestión de contratos y pagos seguros.",
+    image: "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    tags: ["Next.js", "GraphQL", "Prisma", "Vercel", "Stripe"],
+    results: [
+      "500+ empresas conectadas",
+      "€2M+ en transacciones",
+      "99.9% uptime garantizado"
+    ],
+    link: "#",
+    featured: false
+  },
+  {
+    title: "HealthTech Platform",
+    category: "HealthTech",
+    description: "Plataforma de telemedicina con videoconsultas, gestión de historiales médicos y sistema de citas automatizado.",
+    image: "https://images.pexels.com/photos/4386466/pexels-photo-4386466.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    tags: ["React", "WebRTC", "Node.js", "MongoDB", "Socket.io"],
+    results: [
+      "10K+ consultas mensuales",
+      "GDPR compliant",
+      "24/7 disponibilidad"
+    ],
+    link: "#",
+    featured: false
+  },
+  {
+    title: "EduTech Learning",
+    category: "EdTech",
+    description: "Plataforma educativa online con cursos interactivos, seguimiento de progreso y certificaciones digitales.",
+    image: "https://images.pexels.com/photos/4144923/pexels-photo-4144923.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    tags: ["Astro", "Svelte", "Supabase", "Stripe", "Cloudflare"],
+    results: [
+      "50K+ estudiantes activos",
+      "92% tasa de finalización",
+      "Certificaciones reconocidas"
+    ],
+    link: "#",
+    featured: false
+  }
+];
+
+const categories = ["Todos", "E-commerce", "Fintech", "SaaS", "Marketplace", "HealthTech", "EdTech"];
+---
+
+<Layout 
+  title="Proyectos | Portfolio de Desarrollo Web | Davod"
+  description="Descubre nuestros proyectos de desarrollo web, apps móviles y soluciones digitales. Cases de éxito que demuestran nuestra experiencia y resultados."
+>
+  <Header />
+  
+  <main class="pt-20">
+    <!-- Hero Section -->
+    <section class="py-20 lg:py-32 relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-br from-dark-900 via-dark-950 to-black"></div>
+      
+      <div class="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
+          <span class="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+            Proyectos que
+          </span>
+          <br>
+          <span class="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">
+            Marcan la Diferencia
+          </span>
+        </h1>
+        <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          Cada proyecto es una historia de éxito. Descubre cómo hemos ayudado a empresas 
+          de diferentes sectores a alcanzar sus objetivos digitales.
+        </p>
+      </div>
+    </section>
+
+    <!-- Filter Tabs -->
+    <section class="pb-12">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-wrap justify-center gap-4 mb-12">
+          {categories.map((category) => (
+            <button 
+              class="px-6 py-3 bg-dark-800 hover:bg-primary-600 text-gray-300 hover:text-white rounded-xl font-medium transition-all duration-200 hover:scale-105 filter-btn"
+              data-filter={category.toLowerCase()}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="pb-20">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
+          {projects.map((project, index) => (
+            <div 
+              class={`group bg-dark-900/50 backdrop-blur-sm border border-gray-800 rounded-2xl overflow-hidden hover:bg-dark-800/50 hover:border-primary-600/50 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-primary-600/10 project-card ${project.featured ? 'featured' : ''}`}
+              data-category={project.category.toLowerCase()}
+              style={`animation-delay: ${index * 0.1}s`}
+            >
+              <!-- Project Image -->
+              <div class="relative overflow-hidden">
+                <img 
+                  src={project.image}
+                  alt={project.title}
+                  class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                  loading="lazy"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-dark-900/80 to-transparent"></div>
+                {project.featured && (
+                  <div class="absolute top-4 left-4 bg-primary-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
+                    Destacado
+                  </div>
+                )}
+                <div class="absolute top-4 right-4 bg-dark-900/80 backdrop-blur-sm text-primary-300 px-3 py-1 rounded-full text-xs font-medium">
+                  {project.category}
+                </div>
+              </div>
+
+              <!-- Project Content -->
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-white mb-3 group-hover:text-primary-100 transition-colors duration-200">
+                  {project.title}
+                </h3>
+                
+                <p class="text-gray-300 mb-4 leading-relaxed">
+                  {project.description}
+                </p>
+
+                <!-- Tags -->
+                <div class="flex flex-wrap gap-2 mb-4">
+                  {project.tags.slice(0, 3).map((tag) => (
+                    <span class="px-2 py-1 bg-primary-600/20 text-primary-300 text-xs rounded-full border border-primary-600/30">
+                      {tag}
+                    </span>
+                  ))}
+                  {project.tags.length > 3 && (
+                    <span class="px-2 py-1 bg-gray-700 text-gray-300 text-xs rounded-full">
+                      +{project.tags.length - 3}
+                    </span>
+                  )}
+                </div>
+
+                <!-- Results -->
+                <div class="mb-4">
+                  <h4 class="text-sm font-semibold text-gray-300 mb-2">Resultados:</h4>
+                  <ul class="space-y-1">
+                    {project.results.slice(0, 2).map((result) => (
+                      <li class="text-xs text-gray-400 flex items-center">
+                        <svg class="w-3 h-3 text-primary-400 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                          <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                        </svg>
+                        {result}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <!-- Project Link -->
+                <a 
+                  href={project.link}
+                  class="inline-flex items-center text-primary-400 hover:text-primary-300 font-semibold transition-colors duration-200 group/link text-sm"
+                >
+                  Ver caso de estudio
+                  <svg class="w-4 h-4 ml-2 group-hover/link:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 relative">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="bg-gradient-to-r from-primary-600 to-primary-700 rounded-3xl p-12 relative overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-r from-primary-600/90 to-primary-700/90"></div>
+          <div class="relative z-10">
+            <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6">
+              ¿Tu proyecto será el próximo?
+            </h2>
+            <p class="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
+              Estamos listos para crear algo extraordinario contigo. 
+              Hablemos sobre tu visión y cómo hacerla realidad.
+            </p>
+            <a 
+              href="/contacto"
+              class="inline-flex items-center bg-white text-primary-600 hover:bg-gray-100 px-8 py-4 rounded-xl font-semibold transition-all duration-200 hover:scale-105 hover:shadow-xl"
+            >
+              Comenzar proyecto
+              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</Layout>
+
+<script>
+  // Project filtering functionality
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const projectCards = document.querySelectorAll('.project-card');
+
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const filter = button.getAttribute('data-filter');
+      
+      // Update active button
+      filterButtons.forEach(btn => {
+        btn.classList.remove('bg-primary-600', 'text-white');
+        btn.classList.add('bg-dark-800', 'text-gray-300');
+      });
+      button.classList.remove('bg-dark-800', 'text-gray-300');
+      button.classList.add('bg-primary-600', 'text-white');
+
+      // Filter projects
+      projectCards.forEach(card => {
+        const category = card.getAttribute('data-category');
+        if (filter === 'todos' || category === filter) {
+          card.style.display = 'block';
+          card.style.animation = 'fadeIn 0.5s ease-out';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Set initial active state
+  filterButtons[0].classList.add('bg-primary-600', 'text-white');
+  filterButtons[0].classList.remove('bg-dark-800', 'text-gray-300');
+</script>
