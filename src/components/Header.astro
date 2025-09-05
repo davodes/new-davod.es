@@ -1,7 +1,16 @@
 ---
 const navItems = [
   { name: 'Inicio', href: '/' },
-  { name: 'Servicios', href: '/servicios' },
+  { 
+    name: 'Servicios',
+    href: '/servicios',
+    children: [
+      { name: 'Desarrollo web', href: '/servicios#desarrollo-web' },
+      { name: 'Apps móviles', href: '/servicios#apps-moviles' },
+      { name: 'UI/UX design', href: '/servicios#diseno' },
+      { name: 'Consultoría', href: '/servicios#consultoria' },
+    ]
+  },
   { name: 'Proyectos', href: '/proyectos' },
   { name: 'Contacto', href: '/contacto' }
 ];
@@ -21,17 +30,34 @@ import Logo from '../assets/logo.astro';
         </div>
 
         <!-- Desktop Navigation -->
-        <div class="hidden md:flex items-center space-x-8">
+        {/* Desktop Navigation */}
+        <div class="hidden md:flex items-center space-x-8 relative">
           {navItems.map((item) => (
-            <a 
-              href={item.href}
-              class="text-gray-300 hover:text-primary-400 transition-colors duration-200 font-medium relative group"
-            >
-              {item.name}
-              <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-400 transition-all duration-200 group-hover:w-full"></span>
-            </a>
+            <div class="relative group">
+              <a 
+                href={item.href}
+                class="text-gray-300 hover:text-primary-400 transition-colors duration-200 font-medium relative"
+              >
+                {item.name}
+                <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-400 transition-all duration-200 group-hover:w-full"></span>
+              </a>yectos
+
+              {item.children && (
+                <div class="absolute top-full left-0 mt-2 bg-dark-900 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-200 z-20">
+                  {item.children.map((child) => (
+                    <a
+                      href={child.href}
+                      class="block px-4 py-2 text-gray-300 hover:bg-gray-800 hover:text-white transition-colors"
+                    >
+                      {child.name}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
           ))}
         </div>
+
 
         <!-- CTA Button -->
         <div class="hidden md:flex items-center">
