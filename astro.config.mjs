@@ -8,13 +8,19 @@ export default defineConfig({
   output: 'static',
   adapter: vercel(),
   integrations: [
-    tailwind(),
-    sitemap()
+    tailwind({
+      applyBaseStyles: false,
+    }),
+    sitemap({
+      changefreq: 'weekly',
+      priority: 0.7,
+      lastmod: new Date(),
+    })
   ],
   vite: {
     build: {
       cssMinify: true,
-      minify: 'terser'
+      minify: 'esbuild'
     }
   }
 });
