@@ -5,8 +5,8 @@ import Footer from '../components/Footer.astro';
 
 const projects = [
   {
-    title: "TechCorp E-commerce",
-    category: "E-commerce",
+    title: "Instalema website",
+    category: "Website",
     description: "Plataforma de comercio electrónico completa con gestión de inventario, sistema de pagos integrado y panel de administración avanzado.",
     image: "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=1200",
     tags: ["React", "Node.js", "Stripe", "MongoDB", "AWS"],
@@ -90,12 +90,12 @@ const projects = [
   }
 ];
 
-const categories = ["Todos", "E-commerce", "Fintech", "SaaS", "Marketplace", "HealthTech", "EdTech"];
+const categories = ["Todos", "Website", "Fintech", "SaaS", "Marketplace", "HealthTech", "EdTech"];
 ---
 
 <Layout 
-  title="Proyectos | Portfolio de Desarrollo Web | Davod"
-  description="Descubre nuestros proyectos de desarrollo web, apps móviles y soluciones digitales. Cases de éxito que demuestran nuestra experiencia y resultados."
+  title="Proyectos | Portfolio de desarrollo web | Davod"
+  description="Descubre nuestros proyectos de desarrollo web, apps móviles y soluciones digitales. Casos de éxito que demuestran nuestra experiencia y resultados."
 >
   <Header />
   
@@ -111,7 +111,7 @@ const categories = ["Todos", "E-commerce", "Fintech", "SaaS", "Marketplace", "He
           </span>
           <br>
           <span class="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">
-            Marcan la Diferencia
+            marcan la diferencia
           </span>
         </h1>
         <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
@@ -147,7 +147,7 @@ const categories = ["Todos", "E-commerce", "Fintech", "SaaS", "Marketplace", "He
               data-category={project.category.toLowerCase()}
               style={`animation-delay: ${index * 0.1}s`}
             >
-              <!-- Project Image -->
+              {/* <!-- Project Image --> */}
               <div class="relative overflow-hidden">
                 <img 
                   src={project.image}
@@ -166,7 +166,7 @@ const categories = ["Todos", "E-commerce", "Fintech", "SaaS", "Marketplace", "He
                 </div>
               </div>
 
-              <!-- Project Content -->
+              {/* <!-- Project Content --> */}
               <div class="p-6">
                 <h3 class="text-xl font-bold text-white mb-3 group-hover:text-primary-100 transition-colors duration-200">
                   {project.title}
@@ -176,7 +176,7 @@ const categories = ["Todos", "E-commerce", "Fintech", "SaaS", "Marketplace", "He
                   {project.description}
                 </p>
 
-                <!-- Tags -->
+                {/* <!-- Tags --> */}
                 <div class="flex flex-wrap gap-2 mb-4">
                   {project.tags.slice(0, 3).map((tag) => (
                     <span class="px-2 py-1 bg-primary-600/20 text-primary-300 text-xs rounded-full border border-primary-600/30">
@@ -190,7 +190,7 @@ const categories = ["Todos", "E-commerce", "Fintech", "SaaS", "Marketplace", "He
                   )}
                 </div>
 
-                <!-- Results -->
+                {/* <!-- Results --> */}
                 <div class="mb-4">
                   <h4 class="text-sm font-semibold text-gray-300 mb-2">Resultados:</h4>
                   <ul class="space-y-1">
@@ -205,7 +205,7 @@ const categories = ["Todos", "E-commerce", "Fintech", "SaaS", "Marketplace", "He
                   </ul>
                 </div>
 
-                <!-- Project Link -->
+                {/* <!-- Project Link --> */}
                 <a 
                   href={project.link}
                   class="inline-flex items-center text-primary-400 hover:text-primary-300 font-semibold transition-colors duration-200 group/link text-sm"
@@ -256,7 +256,7 @@ const categories = ["Todos", "E-commerce", "Fintech", "SaaS", "Marketplace", "He
 <script>
   // Project filtering functionality
   const filterButtons = document.querySelectorAll('.filter-btn');
-  const projectCards = document.querySelectorAll('.project-card');
+  const projectCards = document.querySelectorAll<HTMLElement>('.project-card');
 
   filterButtons.forEach(button => {
     button.addEventListener('click', () => {

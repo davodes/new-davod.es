@@ -9,7 +9,7 @@ const services = [
     icon: `<svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
     </svg>`,
-    title: "Desarrollo Web",
+    title: "Desarrollo web",
     subtitle: "Aplicaciones web modernas y escalables",
     description: "Creamos aplicaciones web de alto rendimiento utilizando las tecnologías más avanzadas del mercado. Desde sitios corporativos hasta plataformas complejas de e-commerce.",
     features: [
@@ -22,25 +22,6 @@ const services = [
     ],
     technologies: ["React", "Vue.js", "Astro", "Node.js", "TypeScript", "Tailwind CSS"],
     price: "Desde 2.500€"
-  },
-  {
-    id: 'apps-moviles',
-    icon: `<svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
-    </svg>`,
-    title: "Aplicaciones Móviles",
-    subtitle: "Apps nativas e híbridas para iOS y Android",
-    description: "Desarrollamos aplicaciones móviles que ofrecen experiencias nativas excepcionales, optimizadas para cada plataforma y diseñadas para el éxito en las tiendas de aplicaciones.",
-    features: [
-      "Desarrollo nativo iOS/Android",
-      "Apps híbridas con React Native",
-      "Progressive Web Apps (PWA)",
-      "Integración con APIs",
-      "Push notifications",
-      "Publicación en stores"
-    ],
-    technologies: ["React Native", "Flutter", "Swift", "Kotlin", "Expo", "Firebase"],
-    price: "Desde 4.000€"
   },
   {
     id: 'diseno',
@@ -62,11 +43,30 @@ const services = [
     price: "Desde 1.500€"
   },
   {
+    id: 'apps-moviles',
+    icon: `<svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+    </svg>`,
+    title: "Aplicaciones móviles",
+    subtitle: "Apps nativas e híbridas para iOS y Android",
+    description: "Desarrollamos aplicaciones móviles que ofrecen experiencias nativas excepcionales, optimizadas para cada plataforma y diseñadas para el éxito en las tiendas de aplicaciones.",
+    features: [
+      "Desarrollo nativo iOS/Android",
+      "Apps híbridas con React Native",
+      "Progressive Web Apps (PWA)",
+      "Integración con APIs",
+      "Push notifications",
+      "Publicación en stores"
+    ],
+    technologies: ["React Native", "Flutter", "Swift", "Kotlin", "Expo", "Firebase"],
+    price: "Desde 4.000€"
+  },
+  {
     id: 'consultoria',
     icon: `<svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
     </svg>`,
-    title: "Consultoría Digital",
+    title: "Consultoría digital",
     subtitle: "Estrategia y optimización digital",
     description: "Analizamos tu presencia digital actual y diseñamos estrategias personalizadas para maximizar tu ROI y acelerar el crecimiento de tu negocio online.",
     features: [
@@ -101,7 +101,7 @@ const services = [
           </span>
           <br>
           <span class="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">
-            Transforman Negocios
+            transforman negocios
           </span>
         </h1>
         <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
@@ -118,9 +118,8 @@ const services = [
           {services.map((service, index) => (
             <div 
               id={service.id}
-              class={`grid grid-cols-1 lg:grid-cols-2 gap-16 items-center ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}
-            >
-              <!-- Content -->
+              class={`grid grid-cols-1 lg:grid-cols-2 gap-16 items-center ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}>
+              {/* <!-- Content --> */}
               <div class={index % 2 === 1 ? 'lg:col-start-2' : ''}>
                 <div class="text-primary-400 mb-6">
                   <Fragment set:html={service.icon} />
@@ -138,7 +137,7 @@ const services = [
                   {service.description}
                 </p>
 
-                <!-- Features -->
+                {/* <!-- Features --> */}
                 <div class="mb-8">
                   <h3 class="text-lg font-semibold text-white mb-4">¿Qué incluye?</h3>
                   <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -153,7 +152,7 @@ const services = [
                   </ul>
                 </div>
 
-                <!-- Technologies -->
+                {/* <!-- Technologies --> */}
                 <div class="mb-8">
                   <h3 class="text-lg font-semibold text-white mb-4">Tecnologías</h3>
                   <div class="flex flex-wrap gap-2">
@@ -165,7 +164,7 @@ const services = [
                   </div>
                 </div>
 
-                <!-- Price and CTA -->
+                {/* <!-- Price and CTA --> */}
                 <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                   <div>
                     <p class="text-2xl font-bold text-primary-400">{service.price}</p>
@@ -180,10 +179,10 @@ const services = [
                 </div>
               </div>
 
-              <!-- Visual -->
+              {/* <!-- Visual --> */}
               <div class={`relative ${index % 2 === 1 ? 'lg:col-start-1' : ''}`}>
                 <div class="bg-gradient-to-br from-dark-800 to-dark-900 border border-gray-700 rounded-2xl p-8 relative overflow-hidden">
-                  <!-- Background pattern -->
+                  {/* <!-- Background pattern --> */}
                   <div class="absolute inset-0 opacity-10">
                     <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0); background-size: 20px 20px;"></div>
                   </div>
@@ -195,7 +194,7 @@ const services = [
                   </div>
                 </div>
                 
-                <!-- Floating elements -->
+                {/* <!-- Floating elements --> */}
                 <div class="absolute -top-4 -right-4 w-20 h-20 bg-primary-600/20 rounded-full blur-xl animate-float"></div>
                 <div class="absolute -bottom-4 -left-4 w-16 h-16 bg-primary-400/20 rounded-full blur-xl animate-float" style="animation-delay: -2s;"></div>
               </div>

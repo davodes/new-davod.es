@@ -24,7 +24,7 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-primary-600 rounded;
+    @apply bg-primary-600;
   }
 
   ::-webkit-scrollbar-thumb:hover {
@@ -34,14 +34,14 @@
   /* Firefox scrollbar */
   * {
     scrollbar-width: thin;
-    scrollbar-color: theme('colors.primary.600') theme('colors.dark.950');
+    scrollbar-color: theme('colors.primary.500') theme('colors.dark.950');
   }
 }
 
 /* Custom components */
 @layer components {
   .btn-primary {
-    @apply bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-200 hover:scale-105 hover:shadow-xl hover:shadow-primary-600/25;
+    @apply bg-gradient-to-r from-primary-400 to-primary-600 hover:bg-primary-600 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-200 hover:scale-105 hover:shadow-xl hover:shadow-primary-600/25;
   }
 
   .btn-secondary {

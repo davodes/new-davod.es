@@ -1,21 +1,21 @@
 ---
 const projects = [
   {
-    title: "E-commerce Avanzado",
+    title: "E-commerce avanzado",
     description: "Plataforma de comercio electrónico con gestión de inventario, pagos seguros y analytics en tiempo real.",
     image: "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800",
     tags: ["React", "Node.js", "Stripe", "MongoDB"],
     link: "#"
   },
   {
-    title: "App Fintech",
+    title: "App fintech",
     description: "Aplicación móvil para gestión financiera personal con IA para análisis de gastos y recomendaciones.",
     image: "https://images.pexels.com/photos/590020/pexels-photo-590020.jpeg?auto=compress&cs=tinysrgb&w=800",
     tags: ["React Native", "Python", "TensorFlow", "AWS"],
     link: "#"
   },
   {
-    title: "SaaS Dashboard",
+    title: "SaaS dashboard",
     description: "Panel de control empresarial con visualización de datos en tiempo real y reportes automatizados.",
     image: "https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=800",
     tags: ["Vue.js", "D3.js", "PostgreSQL", "Docker"],
@@ -41,7 +41,7 @@ const projects = [
         </span>
         <br>
         <span class="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">
-          Marcan la Diferencia
+          marcan la diferencia
         </span>
       </h2>
       <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
@@ -55,9 +55,9 @@ const projects = [
       {projects.map((project, index) => (
         <div 
           class="group bg-dark-900/50 backdrop-blur-sm border border-gray-800 rounded-2xl overflow-hidden hover:bg-dark-800/50 hover:border-primary-600/50 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-primary-600/10"
-          style={`animation-delay: ${index * 0.1}s`}
-        >
-          <!-- Project Image -->
+          style={`animation-delay: ${index * 0.1}s`}>
+
+          {/*  Project Image  */}
           <div class="relative overflow-hidden">
             <img 
               src={project.image}
@@ -68,7 +68,7 @@ const projects = [
             <div class="absolute inset-0 bg-gradient-to-t from-dark-900/80 to-transparent"></div>
           </div>
 
-          <!-- Project Content -->
+          {/* Project Content */}
           <div class="p-8">
             <h3 class="text-xl font-bold text-white mb-4 group-hover:text-primary-100 transition-colors duration-200">
               {project.title}
@@ -78,7 +78,7 @@ const projects = [
               {project.description}
             </p>
 
-            <!-- Tags -->
+            {/* Tags */}
             <div class="flex flex-wrap gap-2 mb-6">
               {project.tags.map((tag) => (
                 <span class="px-3 py-1 bg-primary-600/20 text-primary-300 text-sm rounded-full border border-primary-600/30">
@@ -87,7 +87,7 @@ const projects = [
               ))}
             </div>
 
-            <!-- Project Link -->
+            {/* Project Link */}
             <a 
               href={project.link}
               class="inline-flex items-center text-primary-400 hover:text-primary-300 font-semibold transition-colors duration-200 group/link"
