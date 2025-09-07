@@ -1,32 +1,34 @@
 ---
 const projects = [
   {
-    title: "Instalema - Website",
+    title: "Instalema website",
+    category: "Website",
     description: "Página web corporativa diseñada con Astro y TailwindCSS, optimizada para conseguir conversión y velocidad.",
     image: "https://camo.githubusercontent.com/d9f9596bdda7b3f5d26bedd0781d3514ee110d6d30850b1c201f5ff129de3f4c/68747470733a2f2f6170692e6d6963726f6c696e6b2e696f2f3f75726c3d68747470733a2f2f696e7374616c656d612e76657263656c2e6170702673637265656e73686f743d74727565266d6574613d66616c736526656d6265643d73637265656e73686f742e75726c",
-    tags: ["Astro", "TailwindCSS", "Responsive", "React", "Vercel"],
+    tags: ["Astro", "TailwindCSS", "Responsive", "React"],
+    results: ["Alta conversión", "Tiempo de carga mínimo", "SEO avanzado", "300% aumento en conversiones"],
     link: "https://instalema.vercel.app",
+    featured: true
   },
   {
-    title: "Ufesa - eCommerce",
-    description: "Aplicación móvil para gestión financiera personal con IA para análisis de gastos y recomendaciones.",
-    image: "https://api.microlink.io/?url=https://ufesa.es&screenshot=true&meta=false&embed=screenshot.url",
-    tags: ["Shopify", "Dynamics 365 integration", "CloudFlare"],
-    link: "#"
+    title: "Branding & Identidad Visual",
+    category: "Diseño de marca",
+    description: "Diseño de logotipo, paleta de colores y manual de identidad para una startup tecnológica.",
+    image: "/images/LaLlarDelVi.jpg",
+    tags: ["Figma", "Illustrator", "Branding", "Photoshop"],
+    results: ["Imagen corporativa coherente", "Reconocimiento de marca", "Manual completo"],
+    link: "#",
+    featured: false
   },
   {
-    title: "La llar del vi - Rebranding",
-    description: "Panel de control empresarial con visualización de datos en tiempo real y reportes automatizados.",
-    image: "https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=800",
-    tags: ["Illustrator", "Figma", "Branding"],
-    link: "#"
-  },
-  {
-    title: "Girolan - Website",
-    description: "Aplicación móvil para gestión financiera personal con IA para análisis de gastos y recomendaciones.",
+    title: "Girolan website",
+    category: "Website",
+    description: "Página web corporativa diseñada con Astro y TailwindCSS, optimizada para conseguir conversión y velocidad.",
     image: "https://camo.githubusercontent.com/84b686fafcb61665b6ace6223e6f9c31729b46af4e5f0796dcdbf60fb4e95b82/68747470733a2f2f6170692e6d6963726f6c696e6b2e696f2f3f75726c3d68747470733a2f2f6769726f6c616e2e76657263656c2e6170702673637265656e73686f743d74727565266d6574613d66616c736526656d6265643d73637265656e73686f742e75726c",
-    tags: ["Astro", "TailwindCSS", "Responsive", "React", "Vercel"],
-    link: "#"
+    tags: ["Astro", "TailwindCSS", "Responsive"],
+    results: ["100K+ descargas en 6 meses", "4.8★ rating en App Store", "40% mejora en ahorro usuarios"],
+    link: "https://girolan.vercel.app/",
+    featured: true
   }
 ];
 ---
@@ -51,7 +53,7 @@ const projects = [
     </div>
 
     <!-- Projects Grid -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
       {projects.map((project, index) => (
         <div 
           class="group bg-dark-900/50 backdrop-blur-sm border border-gray-800 rounded-2xl overflow-hidden hover:bg-dark-800/50 hover:border-primary-600/50 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-primary-600/10"
