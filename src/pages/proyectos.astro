@@ -20,22 +20,18 @@ const projects = [
     description: "Página web corporativa diseñada con Astro y TailwindCSS, optimizada para conseguir conversión y velocidad.",
     image: "https://camo.githubusercontent.com/84b686fafcb61665b6ace6223e6f9c31729b46af4e5f0796dcdbf60fb4e95b82/68747470733a2f2f6170692e6d6963726f6c696e6b2e696f2f3f75726c3d68747470733a2f2f6769726f6c616e2e76657263656c2e6170702673637265656e73686f743d74727565266d6574613d66616c736526656d6265643d73637265656e73686f742e75726c",
     tags: ["Astro", "TailwindCSS", "Responsive"],
-    results: [
-      "100K+ descargas en 6 meses",
-      "4.8★ rating en App Store",
-      "40% mejora en ahorro usuarios"
-    ],
-    link: "#",
+    results: ["100K+ descargas en 6 meses", "4.8★ rating en App Store", "40% mejora en ahorro usuarios"],
+    link: "https://girolan.vercel.app/",
     featured: true
   },
   {
     title: "Tienda online shopify",
-    category: "E-commerce",
+    category: "eCommerce",
     description: "Tienda online completa desarrollada en Shopify, con integración de pagos y panel de administración personalizado.",
     image: "https://api.microlink.io/?url=https://ufesa.es&screenshot=true&meta=false&embed=screenshot.url",
     tags: ["Shopify", "Liquid", "Stripe", "SEO"],
     results: ["Fácil de administrar", "Aumento de ventas online", "Responsive"],
-    link: "#",
+    link: "https://ufesa.es",
     featured: true
   },
   {
@@ -109,24 +105,10 @@ const projects = [
     ],
     link: "#",
     featured: false
-  },
-  {
-    title: "EduTech Learning",
-    category: "EdTech",
-    description: "Plataforma educativa online con cursos interactivos, seguimiento de progreso y certificaciones digitales.",
-    image: "https://images.pexels.com/photos/4144923/pexels-photo-4144923.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    tags: ["Astro", "Svelte", "Supabase", "Stripe", "Cloudflare"],
-    results: [
-      "50K+ estudiantes activos",
-      "92% tasa de finalización",
-      "Certificaciones reconocidas"
-    ],
-    link: "#",
-    featured: false
   }
 ];
 
-const categories = ["Todos", "Website", "Fintech", "SaaS", "Marketplace", "HealthTech", "EdTech"];
+const categories = ["Todos", "Website", "eCommerce", "SaaS", "Marketplace", "HealthTech", "EdTech"];
 ---
 
 <Layout 
@@ -138,7 +120,7 @@ const categories = ["Todos", "Website", "Fintech", "SaaS", "Marketplace", "Healt
   <main class="pt-20">
     <!-- Hero Section -->
     <section class="py-20 lg:py-32 relative overflow-hidden">
-      <div class="absolute inset-0 bg-gradient-to-br from-dark-900 via-dark-950 to-black"></div>
+      <div class="absolute inset-0 bg-gradient-to-br from-dark-900 via-dark-950 to-transparent"></div>
       
       <div class="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
@@ -158,12 +140,12 @@ const categories = ["Todos", "Website", "Fintech", "SaaS", "Marketplace", "Healt
     </section>
 
     <!-- Filter Tabs -->
-    <section class="pb-12">
+    <section class="pb-6">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-wrap justify-center gap-4 mb-12">
           {categories.map((category) => (
             <button 
-              class="px-6 py-3 bg-dark-800 hover:bg-primary-600 text-gray-300 hover:text-white rounded-xl font-medium transition-all duration-200 hover:scale-105 filter-btn"
+              class="px-6 py-3 bg-dark-800 text-gray-400 hover:bg-primary-400 hover:text-dark-900 rounded-lg font-medium transition-all duration-200 hover:scale-105 filter-btn"
               data-filter={category.toLowerCase()}
             >
               {category}
@@ -188,12 +170,12 @@ const categories = ["Todos", "Website", "Fintech", "SaaS", "Marketplace", "Healt
                 <img 
                   src={project.image}
                   alt={project.title}
-                  class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                  class="object-top w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                   loading="lazy"
                 />
                 <div class="absolute inset-0 bg-gradient-to-t from-dark-900/80 to-transparent"></div>
                 {project.featured && (
-                  <div class="absolute top-4 left-4 bg-primary-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
+                  <div class="absolute top-4 left-4 bg-primary-400 text-dark-900 px-3 py-1 rounded-full text-xs font-semibold">
                     Destacado
                   </div>
                 )}
@@ -244,6 +226,7 @@ const categories = ["Todos", "Website", "Fintech", "SaaS", "Marketplace", "Healt
                 {/* <!-- Project Link --> */}
                 <a 
                   href={project.link}
+                  target="_blank"
                   class="inline-flex items-center text-primary-400 hover:text-primary-300 font-semibold transition-colors duration-200 group/link text-sm"
                 >
                   Ver caso de estudio
@@ -261,8 +244,8 @@ const categories = ["Todos", "Website", "Fintech", "SaaS", "Marketplace", "Healt
     <!-- CTA Section -->
     <section class="py-20 relative">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div class="bg-gradient-to-r from-primary-600 to-primary-700 rounded-3xl p-12 relative overflow-hidden">
-          <div class="absolute inset-0 bg-gradient-to-r from-primary-600/90 to-primary-700/90"></div>
+        <div class="bg-gradient-to-b from-transparent to-dark-900/50 backdrop-blur-sm rounded-3xl p-12 relative overflow-hidden">
+          <div class="absolute inset-0"></div>
           <div class="relative z-10">
             <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6">
               ¿Tu proyecto será el próximo?
@@ -271,15 +254,14 @@ const categories = ["Todos", "Website", "Fintech", "SaaS", "Marketplace", "Healt
               Estamos listos para crear algo extraordinario contigo. 
               Hablemos sobre tu visión y cómo hacerla realidad.
             </p>
-            <a 
-              href="/contacto"
-              class="inline-flex items-center bg-white text-primary-600 hover:bg-gray-100 px-8 py-4 rounded-xl font-semibold transition-all duration-200 hover:scale-105 hover:shadow-xl"
-            >
-              Comenzar proyecto
-              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-              </svg>
-            </a>
+            <div class="flex items-center justify-center gap-8">
+              <a href="/contacto" class="btn-primary text-lg px-8 py-4 group flex justify-center gap-2 items-center text-dark-950">
+              Comenzar proyecto<svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" fill="none"><path d="M9.71154 6.88462L14.3269 11.5L9.71154 16.1154M21.25 11.5C21.25 17.0228 16.7728 21.5 11.25 21.5C5.72715 21.5 1.25 17.0228 1.25 11.5C1.25 5.97715 5.72715 1.5 11.25 1.5C16.7728 1.5 21.25 5.97715 21.25 11.5Z" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+              <a href="/proyectos" class="nav-link">
+                Ver servicios
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -289,37 +271,59 @@ const categories = ["Todos", "Website", "Fintech", "SaaS", "Marketplace", "Healt
   <Footer />
 </Layout>
 
+<style>
+  .nav-link {
+    @apply text-white hover:text-primary-500 flex items-center gap-2 px-1 py-2 text-lg font-medium transition-colors relative;
+  }
+  
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: theme('colors.primary.500');
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+</style>
+
 <script>
   // Project filtering functionality
-  const filterButtons = document.querySelectorAll('.filter-btn');
-  const projectCards = document.querySelectorAll<HTMLElement>('.project-card');
+const filterButtons = document.querySelectorAll('.filter-btn');
+const projectCards = document.querySelectorAll<HTMLElement>('.project-card');
 
-  filterButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const filter = button.getAttribute('data-filter');
-      
-      // Update active button
-      filterButtons.forEach(btn => {
-        btn.classList.remove('bg-primary-600', 'text-white');
-        btn.classList.add('bg-dark-800', 'text-gray-300');
-      });
-      button.classList.remove('bg-dark-800', 'text-gray-300');
-      button.classList.add('bg-primary-600', 'text-white');
+filterButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const filter = button.getAttribute('data-filter');
+    
+    // Update active button
+    filterButtons.forEach(btn => {
+      btn.classList.remove('bg-primary-400', 'text-dark-900');
+      btn.classList.add('bg-dark-800', 'text-gray-400');
+    });
+    button.classList.remove('bg-dark-800', 'text-gray-400');
+    button.classList.add('bg-primary-400', 'text-dark-900');
 
-      // Filter projects
-      projectCards.forEach(card => {
-        const category = card.getAttribute('data-category');
-        if (filter === 'todos' || category === filter) {
-          card.style.display = 'block';
-          card.style.animation = 'fadeIn 0.5s ease-out';
-        } else {
-          card.style.display = 'none';
-        }
-      });
+    // Filter projects
+    projectCards.forEach(card => {
+      const category = card.getAttribute('data-category');
+      if (filter === 'todos' || category === filter) {
+        card.style.display = 'block';
+        card.style.animation = 'fadeIn 0.5s ease-out';
+      } else {
+        card.style.display = 'none';
+      }
     });
   });
+});
 
-  // Set initial active state
-  filterButtons[0].classList.add('bg-primary-600', 'text-white');
-  filterButtons[0].classList.remove('bg-dark-800', 'text-gray-300');
+// Set initial active state
+filterButtons[0].classList.add('bg-primary-400', 'text-dark-900');
+filterButtons[0].classList.remove('bg-dark-800', 'text-gray-400');
 </script>
