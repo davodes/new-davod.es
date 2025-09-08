@@ -1,0 +1,218 @@
+<!-- Contact Form -->
+<div class="flex flex-col gap-6">
+  <form
+    class="space-y-6"
+    action="https://api.web3forms.com/submit"
+    method="POST"
+    id="contact-form"
+  >
+    <!-- Web3Forms Key -->
+    <input
+      type="hidden"
+      name="access_key"
+      value="80de4a57-7c81-46d2-aa2f-71a3f19e8d21"
+    />
+    <!-- Honeypot -->
+    <!-- <input type="checkbox" name="botcheck" class="hidden" style="display:none"> -->
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <div>
+        <label for="name" class="block text-sm font-medium text-gray-300 mb-2">
+          Nombre *
+        </label>
+        <input 
+          type="text" 
+          id="name" 
+          name="name" 
+          required
+          class="w-full px-4 py-3 bg-dark-800 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent transition-all duration-200"
+          placeholder="Tu nombre completo"
+        />
+      </div>
+      <div>
+        <label for="email" class="block text-sm font-medium text-gray-300 mb-2">
+          Email *
+        </label>
+        <input 
+          type="email" 
+          id="email" 
+          name="email" 
+          required
+          class="w-full px-4 py-3 bg-dark-800 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent transition-all duration-200"
+          placeholder="tu@email.com"
+        />
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <div>
+        <label for="company" class="block text-sm font-medium text-gray-300 mb-2">
+          Empresa
+        </label>
+        <input 
+          type="text" 
+          id="company" 
+          name="company"
+          class="w-full px-4 py-3 bg-dark-800 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent transition-all duration-200"
+          placeholder="Nombre de tu empresa"
+        />
+      </div>
+      <div>
+        <label for="budget" class="block text-sm font-medium text-gray-300 mb-2">
+          Presupuesto estimado
+        </label>
+        <select 
+          id="budget" 
+          name="budget"
+          class="w-full px-4 py-3 bg-dark-800 border border-gray-700 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent transition-all duration-200"
+        >
+          <option value="">Seleccionar rango</option>
+          <option value="1000-5000">500€ - 2.000€</option>
+          <option value="5000-15000">2.000€ - 5.000€</option>
+          <option value="15000-50000">5.000€ - 10.000€</option>
+          <option value="50000+">+10.000€</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <div>
+        <label for="service" class="block text-sm font-medium text-gray-300 mb-2">
+          Tipo de proyecto *
+        </label>
+        <select 
+          id="service" 
+          name="service" 
+          required
+          class="w-full px-4 py-3 bg-dark-800 border border-gray-700 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent transition-all duration-200"
+        >
+          <option value="">Seleccionar servicio</option>
+          <option value="desarrollo-web">Desarrollo Web</option>
+          <option value="app-movil">Aplicación Móvil</option>
+          <option value="diseno-ux">UI/UX Design</option>
+          <option value="consultoria">Consultoría Digital</option>
+          <option value="mantenimiento">Mantenimiento Web</option>
+          <option value="otro">Otro</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="timeline" class="block text-sm font-medium text-gray-300 mb-2">
+          Timeline del proyecto
+        </label>
+        <select 
+          id="timeline" 
+          name="timeline"
+          class="w-full px-4 py-3 bg-dark-800 border border-gray-700 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent transition-all duration-200"
+        >
+          <option value="">Seleccionar timeline</option>
+          <option value="urgente">Urgente (1-2 semanas)</option>
+          <option value="rapido">Rápido (1 mes)</option>
+          <option value="normal">Normal (2-3 meses)</option>
+          <option value="flexible">Flexible (3+ meses)</option>
+        </select>
+      </div>
+    </div>
+
+    <div>
+      <label for="message" class="block text-sm font-medium text-gray-300 mb-2">
+        Mensaje *
+      </label>
+      <textarea 
+        id="message" 
+        name="message" 
+        rows="6" 
+        required
+        class="w-full px-4 py-3 bg-dark-800 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent transition-all duration-200 resize-none"
+        placeholder="Cuéntanos sobre tu proyecto: objetivos, funcionalidades deseadas, público objetivo, referencias que te gusten..."
+      ></textarea>
+    </div>
+
+    <!-- Privacy Policy -->
+    <div class="flex items-start space-x-3">
+      <input 
+        type="checkbox" 
+        id="privacy" 
+        name="privacy" 
+        required
+        class="mt-1 w-4 h-4 text-primary-600 bg-dark-800 border-gray-700 rounded focus:ring-primary-600 focus:ring-2"
+      />
+      <label for="privacy" class="text-sm text-gray-300">
+        Acepto la <a href="/privacidad" class="text-primary-400 hover:text-primary-300 transition-colors duration-200">política de privacidad</a> 
+        y el tratamiento de mis datos personales. *
+      </label>
+    </div>
+
+    <!-- hCaptcha -->
+    <div class="h-captcha" data-captcha="true"></div>
+
+    <button 
+      type="submit"
+      class="btn-primary flex items-center justify-center gap-2 w-full bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-200 hover:scale-105 hover:shadow-xl hover:shadow-primary-600/25 disabled:opacity-50 disabled:cursor-not-allowed"
+      id="submit-btn"
+    >
+      <span id="submit-text">Enviar mensaje</span>
+      <!-- <svg class="w-5 h-5 ml-2 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+      </svg> -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" viewBox="0 0 20 20" fill="none">
+        <path d="M16.6719 0.386615C17.0783 0.240566 17.5173 0.210609 17.9395 0.302631C18.3699 0.396531 18.7647 0.612217 19.0762 0.923725C19.3877 1.23523 19.6034 1.63003 19.6973 2.06044C19.7893 2.48235 19.7591 2.92094 19.6133 3.32705L19.6143 3.32802L14.6582 18.1786L14.6592 18.1796C14.5356 18.5542 14.3177 18.891 14.0264 19.1571C13.7372 19.4213 13.385 19.6061 13.004 19.6962C12.62 19.7905 12.2181 19.7843 11.8379 19.6757C11.4609 19.5679 11.1179 19.3642 10.8428 19.0849L8.21293 16.4667L5.46 17.8905C5.22448 18.0123 4.94155 18.001 4.71684 17.8602C4.49211 17.7194 4.35842 17.4701 4.36528 17.205L4.48149 12.7235L0.916059 9.1581L0.917036 9.15712C0.650846 8.89109 0.453889 8.56349 0.345747 8.20302C0.239336 7.84804 0.222067 7.47264 0.293989 7.10927C0.367146 6.70632 0.546399 6.32987 0.81352 6.01943C1.08069 5.70906 1.42597 5.47504 1.81352 5.34267L1.8184 5.34169L16.6719 0.385639V0.386615ZM5.98051 12.7792L5.8975 15.9745L8.00981 14.8827C8.29931 14.7331 8.65286 14.7876 8.88383 15.0175L11.9014 18.0214L11.9092 18.0292C12.0032 18.1255 12.1207 18.1963 12.25 18.2333C12.3793 18.2702 12.516 18.2722 12.6465 18.2401L12.6563 18.2382C12.7899 18.2071 12.9134 18.1422 13.0147 18.0497C13.1161 17.9571 13.1914 17.8393 13.2344 17.7089L13.2354 17.7069L18.1915 2.85341L18.2002 2.829C18.2331 2.74046 18.2477 2.64715 18.2481 2.55361L5.98051 12.7792ZM2.29301 6.76454C2.16026 6.8109 2.04201 6.89132 1.95024 6.99794C1.85736 7.10588 1.79507 7.23676 1.76957 7.37685C1.76853 7.38261 1.76685 7.3887 1.76567 7.39443C1.73987 7.51975 1.74554 7.6498 1.78227 7.77236C1.80984 7.86424 1.85452 7.95004 1.91313 8.02529L1.97661 8.09755L5.2852 11.4061L16.5674 2.00087L2.29301 6.76454Z" fill="currentColor"/>
+      </svg>
+    </button>
+  </form>
+
+  <!-- Mensaje dinámico -->
+  <p id="form-status" class="mt-4 text-center text-sm text-gray-700 hidden"></p>
+
+  <!-- hCaptcha JS -->
+  <script src="https://web3forms.com/client/script.js" async defer></script>
+  <script>
+    const form = document.querySelector<HTMLFormElement>(
+      'form[action="https://api.web3forms.com/submit"]'
+    );
+    const status = document.getElementById(
+      "form-status"
+    ) as HTMLParagraphElement | null;
+
+    function showStatus(message: string) {
+      if (!status) return;
+      status.textContent = message;
+      status.classList.remove("hidden");
+      status.classList.add("block");
+    }
+
+    function hideStatus() {
+      if (!status) return;
+      status.textContent = "";
+      status.classList.add("hidden");
+      status.classList.remove("block");
+    }
+
+    if (form && status) {
+      hideStatus(); // aseguramos que esté oculto al inicio
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        showStatus("Enviando...");
+
+        const formData = new FormData(form);
+        try {
+          const response = await fetch(form.action, {
+            method: form.method,
+            body: formData,
+            headers: { Accept: "application/json" },
+          });
+
+          if (response.ok) {
+            showStatus("Mensaje enviado correctamente.");
+            form.reset();
+          } else {
+            showStatus("Error al enviar el mensaje. Intenta nuevamente.");
+          }
+        } catch {
+          showStatus("Error de conexión. Revisa tu red.");
+        }
+      });
+    }
+    </script>
+</div>

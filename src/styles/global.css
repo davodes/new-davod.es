@@ -33,7 +33,7 @@
 
   /* Firefox scrollbar */
   * {
-    scrollbar-width: thin;
+    scrollbar-width: auto;
     scrollbar-color: theme('colors.primary.500') theme('colors.dark.950');
   }
 }

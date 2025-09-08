@@ -1,7 +1,7 @@
 ---
 const projects = [
   {
-    title: "Instalema website",
+    title: "Instalema - Website",
     category: "Website",
     description: "Página web corporativa diseñada con Astro y TailwindCSS, optimizada para conseguir conversión y velocidad.",
     image: "https://camo.githubusercontent.com/d9f9596bdda7b3f5d26bedd0781d3514ee110d6d30850b1c201f5ff129de3f4c/68747470733a2f2f6170692e6d6963726f6c696e6b2e696f2f3f75726c3d68747470733a2f2f696e7374616c656d612e76657263656c2e6170702673637265656e73686f743d74727565266d6574613d66616c736526656d6265643d73637265656e73686f742e75726c",
@@ -11,9 +11,9 @@ const projects = [
     featured: true
   },
   {
-    title: "Branding & Identidad Visual",
+    title: "La Llar del Vi - Branding",
     category: "Diseño de marca",
-    description: "Diseño de logotipo, paleta de colores y manual de identidad para una startup tecnológica.",
+    description: "Diseño de marca, incluyendo logotipo, paleta de colores y manual de identidad para una tienda con amplia selección de vinos y destilados.",
     image: "/images/LaLlarDelVi.jpg",
     tags: ["Figma", "Illustrator", "Branding", "Photoshop"],
     results: ["Imagen corporativa coherente", "Reconocimiento de marca", "Manual completo"],
@@ -21,7 +21,7 @@ const projects = [
     featured: false
   },
   {
-    title: "Girolan website",
+    title: "Girolan - Website",
     category: "Website",
     description: "Página web corporativa diseñada con Astro y TailwindCSS, optimizada para conseguir conversión y velocidad.",
     image: "https://camo.githubusercontent.com/84b686fafcb61665b6ace6223e6f9c31729b46af4e5f0796dcdbf60fb4e95b82/68747470733a2f2f6170692e6d6963726f6c696e6b2e696f2f3f75726c3d68747470733a2f2f6769726f6c616e2e76657263656c2e6170702673637265656e73686f743d74727565266d6574613d66616c736526656d6265643d73637265656e73686f742e75726c",
@@ -33,7 +33,7 @@ const projects = [
 ];
 ---
 
-<section class="py-20 lg:py-32 relative">
+<section class="py-20 lg:py-20 relative">
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Section Header -->
     <div class="text-center mb-16">
@@ -53,10 +53,10 @@ const projects = [
     </div>
 
     <!-- Projects Grid -->
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-10">
       {projects.map((project, index) => (
         <div 
-          class="group bg-dark-900/50 backdrop-blur-sm border border-gray-800 rounded-2xl overflow-hidden hover:bg-dark-800/50 hover:border-primary-600/50 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-primary-600/10"
+          class="group bg-dark-900/50 backdrop-blur-sm border border-dark-900 rounded-2xl overflow-hidden hover:bg-dark-800/50 hover:border-primary-600/50 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-primary-600/10"
           style={`animation-delay: ${index * 0.1}s`}>
 
           {/*  Project Image  */}
@@ -64,7 +64,7 @@ const projects = [
             <img 
               src={project.image}
               alt={project.title}
-              class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+              class="object-top w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
               loading="lazy"
             />
             <div class="absolute inset-0 bg-gradient-to-t from-dark-900/80 to-transparent"></div>
@@ -105,16 +105,38 @@ const projects = [
     </div>
 
     <!-- CTA Section -->
-    <div class="text-center">
+    <div class="text-center mt-10 w-fit m-auto">
       <a 
-        href="/proyectos"
-        class="inline-flex items-center bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-200 hover:scale-105 hover:shadow-xl hover:shadow-primary-600/25"
+        href="/servicios"
+        class="nav-link justify-center"
       >
         Ver todos los proyectos
-        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <!-- <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-        </svg>
+        </svg> -->
       </a>
     </div>
   </div>
 </section>
+
+<style>
+.nav-link {
+  @apply text-white hover:text-primary-500 flex items-center gap-2 px-1 py-2 text-lg font-medium transition-colors relative w-auto;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: theme('colors.primary.500');
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+</style>

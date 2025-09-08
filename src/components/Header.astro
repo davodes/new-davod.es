@@ -21,7 +21,7 @@ import Logo from '../assets/logo.astro';
 
 <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="header">
   <div class="thenav fixed container-max w-full m-0">
-    <div class="internav fixed bg-black/[var(--bg-opacity)] [--bg-opacity:25%] backdrop-blur-md border-b border-white/15 overflow-visible z-[99999] header-animate w-full">
+    <div class="internav fixed bg-black/[var(--bg-opacity)] [--bg-opacity:10%] backdrop-blur-md border-b border-white/10 overflow-visible z-[99999] header-animate w-full">
       <div class="section-padding container-max flex items-center justify-between content-between grid-cols-[auto_1fr] m-auto gap-x-10 md:flex w-full py-5">
         <!-- Logo -->
         <div class="flex-shrink-0">
@@ -59,14 +59,12 @@ import Logo from '../assets/logo.astro';
           ))}
         </div>
 
-
         <!-- CTA Button -->
         <div class="hidden md:flex items-center">
-          <a href="/contacto" class="btn-primary text-dark-950 px-6 py-2.5 rounded-lg font-medium transition-all duration-200 hover:scale-105 hover:shadow-lg hover:shadow-primary-600/25 flex items-center gap-2">
+          <a target="_blank" href="https://wa.me/654788243" class="btn-primary text-dark-950 px-6 py-2.5 rounded-lg font-medium transition-all duration-200 hover:scale-105 hover:shadow-lg hover:shadow-primary-600/25 flex items-center gap-2">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.4915 2.43841C12.025 0.968412 10.072 0.159912 7.9965 0.159912C3.7125 0.159912 0.2265 3.64591 0.2265 7.92991C0.2265 9.29841 0.5835 10.6354 1.2625 11.8149L0.16 15.8399L4.2795 14.7584C5.4135 15.3779 6.691 15.7034 7.993 15.7034H7.9965C12.277 15.7034 15.84 12.2174 15.84 7.93341C15.84 5.85791 14.958 3.90841 13.4915 2.43841ZM7.9965 14.3944C6.8345 14.3944 5.697 14.0829 4.7065 13.4949L4.472 13.3549L2.029 13.9954L2.68 11.6119L2.526 11.3669C1.8785 10.3379 1.539 9.15141 1.539 7.92991C1.539 4.37041 4.437 1.47241 8 1.47241C9.7255 1.47241 11.346 2.14441 12.564 3.36591C13.782 4.58741 14.531 6.20791 14.5275 7.93341C14.5275 11.4964 11.556 14.3944 7.9965 14.3944ZM11.5385 9.55741C11.346 9.45941 10.3905 8.99041 10.212 8.92741C10.0335 8.86091 9.904 8.82941 9.7745 9.02541C9.645 9.22141 9.274 9.65541 9.1585 9.78841C9.0465 9.91791 8.931 9.93541 8.7385 9.83741C7.5975 9.26691 6.8485 8.81891 6.096 7.52741C5.8965 7.18441 6.2955 7.20891 6.6665 6.46691C6.7295 6.33741 6.698 6.22541 6.649 6.12741C6.6 6.02941 6.2115 5.07391 6.0505 4.68541C5.893 4.30741 5.732 4.35991 5.613 4.35291C5.501 4.34591 5.3715 4.34591 5.242 4.34591C5.1125 4.34591 4.9025 4.39491 4.724 4.58741C4.5455 4.78341 4.045 5.25241 4.045 6.20791C4.045 7.16341 4.7415 8.08741 4.836 8.21691C4.934 8.34641 6.2045 10.3064 8.154 11.1499C9.386 11.6819 9.869 11.7274 10.485 11.6364C10.8595 11.5804 11.633 11.1674 11.794 10.7124C11.955 10.2574 11.955 9.86891 11.906 9.78841C11.8605 9.70091 11.731 9.65191 11.5385 9.55741Z" fill="#020617"/></svg>Escríbenos
           </a>
         </div>
-
 
         <!-- Mobile menu button -->
         <div class="md:hidden">

@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import ExtenseContactForm from '../components/ExtenseContactForm.astro';
 ---
 
 <Layout 
@@ -39,7 +40,10 @@ import Footer from '../components/Footer.astro';
           <!-- Contact Info -->
           <div class="lg:col-span-1">
             <div class="bg-dark-900/50 backdrop-blur-sm border border-gray-800 rounded-2xl p-8 sticky top-24">
-              <h2 class="text-2xl font-bold text-white mb-8">Información de contacto</h2>
+              <h2 class="text-2xl font-bold text-white mb-2">Información de contacto</h2>
+              <p class="text-gray-300 mb-8">
+                Puedes contactarnos a través de estos medios.
+              </p>
               
               <!-- Contact Methods -->
               <div class="space-y-6 mb-8">
@@ -69,7 +73,7 @@ import Footer from '../components/Footer.astro';
                     <a href="tel:+34654788243" class="text-primary-400 hover:text-primary-300 transition-colors duration-200">
                       654 788 243
                     </a>
-                    <p class="text-sm text-gray-400 mt-1">Lun-Vie 9:00-18:00</p>
+                    <p class="text-sm text-gray-400 mt-1">Lun-Sab 9:00-18:00</p>
                   </div>
                 </div>
 
@@ -101,7 +105,8 @@ import Footer from '../components/Footer.astro';
                 <h3 class="text-lg font-semibold text-white mb-4">Síguenos</h3>
                 <div class="flex space-x-3">
                   <a 
-                    href="https://linkedin.com/company/davod" 
+                    href="https://www.linkedin.com/in/davodpuntoes/"
+                    target="_blank"
                     class="w-10 h-10 bg-dark-800 hover:bg-primary-600 rounded-lg flex items-center justify-center transition-all duration-200 hover:scale-110"
                     aria-label="LinkedIn"
                   >
@@ -110,7 +115,8 @@ import Footer from '../components/Footer.astro';
                     </svg>
                   </a>
                   <a 
-                    href="https://github.com/davod" 
+                    href="https://github.com/davodes"
+                    target="_blank"
                     class="w-10 h-10 bg-dark-800 hover:bg-primary-600 rounded-lg flex items-center justify-center transition-all duration-200 hover:scale-110"
                     aria-label="GitHub"
                   >
@@ -119,12 +125,12 @@ import Footer from '../components/Footer.astro';
                     </svg>
                   </a>
                   <a 
-                    href="https://twitter.com/davod" 
+                    href="https://instagram.com/davod.es_"
+                    target="_blank"
                     class="w-10 h-10 bg-dark-800 hover:bg-primary-600 rounded-lg flex items-center justify-center transition-all duration-200 hover:scale-110"
-                    aria-label="Twitter"
-                  >
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M6.29 18.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0020 3.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.073 4.073 0 01.8 7.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 010 16.407a11.616 11.616 0 006.29 1.84"></path>
+                    aria-label="Instagram">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm5.25-.88a1.13 1.13 0 1 1-2.25 0 1.13 1.13 0 0 1 2.25 0z"/>
                     </svg>
                   </a>
                 </div>
@@ -135,148 +141,13 @@ import Footer from '../components/Footer.astro';
           <!-- Contact Form -->
           <div class="lg:col-span-2">
             <div class="bg-dark-900/50 backdrop-blur-sm border border-gray-800 rounded-2xl p-8">
-              <h2 class="text-3xl font-bold text-white mb-2">Envíanos un mensaje</h2>
+              <h2 class="text-2xl font-bold text-white mb-2">Envíanos un mensaje</h2>
               <p class="text-gray-300 mb-8">
                 Cuéntanos sobre tu proyecto y te responderemos con una propuesta personalizada.
               </p>
               
               <form class="space-y-6" action="#" method="POST" id="contact-form">
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div>
-                    <label for="name" class="block text-sm font-medium text-gray-300 mb-2">
-                      Nombre *
-                    </label>
-                    <input 
-                      type="text" 
-                      id="name" 
-                      name="name" 
-                      required
-                      class="w-full px-4 py-3 bg-dark-800 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent transition-all duration-200"
-                      placeholder="Tu nombre completo"
-                    />
-                  </div>
-                  <div>
-                    <label for="email" class="block text-sm font-medium text-gray-300 mb-2">
-                      Email *
-                    </label>
-                    <input 
-                      type="email" 
-                      id="email" 
-                      name="email" 
-                      required
-                      class="w-full px-4 py-3 bg-dark-800 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent transition-all duration-200"
-                      placeholder="tu@email.com"
-                    />
-                  </div>
-                </div>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div>
-                    <label for="company" class="block text-sm font-medium text-gray-300 mb-2">
-                      Empresa
-                    </label>
-                    <input 
-                      type="text" 
-                      id="company" 
-                      name="company"
-                      class="w-full px-4 py-3 bg-dark-800 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent transition-all duration-200"
-                      placeholder="Nombre de tu empresa"
-                    />
-                  </div>
-                  <div>
-                    <label for="budget" class="block text-sm font-medium text-gray-300 mb-2">
-                      Presupuesto estimado
-                    </label>
-                    <select 
-                      id="budget" 
-                      name="budget"
-                      class="w-full px-4 py-3 bg-dark-800 border border-gray-700 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent transition-all duration-200"
-                    >
-                      <option value="">Seleccionar rango</option>
-                      <option value="1000-5000">€1.000 - €5.000</option>
-                      <option value="5000-15000">€5.000 - €15.000</option>
-                      <option value="15000-50000">€15.000 - €50.000</option>
-                      <option value="50000+">€50.000+</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div>
-                  <label for="service" class="block text-sm font-medium text-gray-300 mb-2">
-                    Tipo de proyecto *
-                  </label>
-                  <select 
-                    id="service" 
-                    name="service" 
-                    required
-                    class="w-full px-4 py-3 bg-dark-800 border border-gray-700 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent transition-all duration-200"
-                  >
-                    <option value="">Seleccionar servicio</option>
-                    <option value="desarrollo-web">Desarrollo Web</option>
-                    <option value="app-movil">Aplicación Móvil</option>
-                    <option value="diseno-ux">UI/UX Design</option>
-                    <option value="consultoria">Consultoría Digital</option>
-                    <option value="mantenimiento">Mantenimiento Web</option>
-                    <option value="otro">Otro</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label for="timeline" class="block text-sm font-medium text-gray-300 mb-2">
-                    Timeline del proyecto
-                  </label>
-                  <select 
-                    id="timeline" 
-                    name="timeline"
-                    class="w-full px-4 py-3 bg-dark-800 border border-gray-700 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent transition-all duration-200"
-                  >
-                    <option value="">Seleccionar timeline</option>
-                    <option value="urgente">Urgente (1-2 semanas)</option>
-                    <option value="rapido">Rápido (1 mes)</option>
-                    <option value="normal">Normal (2-3 meses)</option>
-                    <option value="flexible">Flexible (3+ meses)</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label for="message" class="block text-sm font-medium text-gray-300 mb-2">
-                    Mensaje *
-                  </label>
-                  <textarea 
-                    id="message" 
-                    name="message" 
-                    rows="6" 
-                    required
-                    class="w-full px-4 py-3 bg-dark-800 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent transition-all duration-200 resize-none"
-                    placeholder="Cuéntanos sobre tu proyecto: objetivos, funcionalidades deseadas, público objetivo, referencias que te gusten..."
-                  ></textarea>
-                </div>
-
-                <!-- Privacy Policy -->
-                <div class="flex items-start space-x-3">
-                  <input 
-                    type="checkbox" 
-                    id="privacy" 
-                    name="privacy" 
-                    required
-                    class="mt-1 w-4 h-4 text-primary-600 bg-dark-800 border-gray-700 rounded focus:ring-primary-600 focus:ring-2"
-                  />
-                  <label for="privacy" class="text-sm text-gray-300">
-                    Acepto la <a href="/privacidad" class="text-primary-400 hover:text-primary-300 transition-colors duration-200">política de privacidad</a> 
-                    y el tratamiento de mis datos personales. *
-                  </label>
-                </div>
-
-                <button 
-                  type="submit"
-                  class="w-full bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-200 hover:scale-105 hover:shadow-xl hover:shadow-primary-600/25 disabled:opacity-50 disabled:cursor-not-allowed"
-                  id="submit-btn"
-                >
-                  <span id="submit-text">Enviar mensaje</span>
-                  <svg class="w-5 h-5 ml-2 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
-                  </svg>
-                </button>
+                <ExtenseContactForm />
               </form>
             </div>
           </div>
@@ -285,11 +156,11 @@ import Footer from '../components/Footer.astro';
     </section>
 
     <!-- FAQ Section -->
-    <section class="py-20 bg-dark-900/30">
+    <section class="py-20">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
           <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6">
-            Preguntas Frecuentes
+            Preguntas frecuentes
           </h2>
           <p class="text-xl text-gray-300 max-w-2xl mx-auto">
             Resolvemos las dudas más comunes sobre nuestros servicios y proceso de trabajo.

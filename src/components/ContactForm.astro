@@ -44,7 +44,7 @@
       </div>
     </div>
 
-    <div>
+    <!-- <div>
       <label for="subject" class="block text-sm font-medium text-gray-300 mb-2"
         >Asunto</label
       >
@@ -56,7 +56,7 @@
         class="w-full px-4 py-3 bg-dark-800 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent transition-all duration-200"
         placeholder="¿En qué podemos ayudarte?"
       />
-    </div>
+    </div> -->
 
     <div>
       <label for="message" class="block text-sm font-medium text-gray-300 mb-2"
@@ -95,11 +95,18 @@
     <!-- Redirección opcional tras envío -->
     <!-- <input type="hidden" name="redirect" value="https://tusitio.com/gracias" /> -->
 
-    <button
+    <button 
       type="submit"
-      class="w-full bg-gradient-to-r from-primary-600 to-primary-700 text-white py-3 px-6 rounded-lg font-medium hover:from-primary-700 hover:to-primary-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
+      class="btn-primary flex items-center justify-center gap-2 w-full bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-200 hover:scale-105 hover:shadow-xl hover:shadow-primary-600/25 disabled:opacity-50 disabled:cursor-not-allowed"
+      id="submit-btn"
     >
-      Enviar mensaje
+      <span id="submit-text">Enviar mensaje</span>
+      <!-- <svg class="w-5 h-5 ml-2 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+      </svg> -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" viewBox="0 0 20 20" fill="none">
+        <path d="M16.6719 0.386615C17.0783 0.240566 17.5173 0.210609 17.9395 0.302631C18.3699 0.396531 18.7647 0.612217 19.0762 0.923725C19.3877 1.23523 19.6034 1.63003 19.6973 2.06044C19.7893 2.48235 19.7591 2.92094 19.6133 3.32705L19.6143 3.32802L14.6582 18.1786L14.6592 18.1796C14.5356 18.5542 14.3177 18.891 14.0264 19.1571C13.7372 19.4213 13.385 19.6061 13.004 19.6962C12.62 19.7905 12.2181 19.7843 11.8379 19.6757C11.4609 19.5679 11.1179 19.3642 10.8428 19.0849L8.21293 16.4667L5.46 17.8905C5.22448 18.0123 4.94155 18.001 4.71684 17.8602C4.49211 17.7194 4.35842 17.4701 4.36528 17.205L4.48149 12.7235L0.916059 9.1581L0.917036 9.15712C0.650846 8.89109 0.453889 8.56349 0.345747 8.20302C0.239336 7.84804 0.222067 7.47264 0.293989 7.10927C0.367146 6.70632 0.546399 6.32987 0.81352 6.01943C1.08069 5.70906 1.42597 5.47504 1.81352 5.34267L1.8184 5.34169L16.6719 0.385639V0.386615ZM5.98051 12.7792L5.8975 15.9745L8.00981 14.8827C8.29931 14.7331 8.65286 14.7876 8.88383 15.0175L11.9014 18.0214L11.9092 18.0292C12.0032 18.1255 12.1207 18.1963 12.25 18.2333C12.3793 18.2702 12.516 18.2722 12.6465 18.2401L12.6563 18.2382C12.7899 18.2071 12.9134 18.1422 13.0147 18.0497C13.1161 17.9571 13.1914 17.8393 13.2344 17.7089L13.2354 17.7069L18.1915 2.85341L18.2002 2.829C18.2331 2.74046 18.2477 2.64715 18.2481 2.55361L5.98051 12.7792ZM2.29301 6.76454C2.16026 6.8109 2.04201 6.89132 1.95024 6.99794C1.85736 7.10588 1.79507 7.23676 1.76957 7.37685C1.76853 7.38261 1.76685 7.3887 1.76567 7.39443C1.73987 7.51975 1.74554 7.6498 1.78227 7.77236C1.80984 7.86424 1.85452 7.95004 1.91313 8.02529L1.97661 8.09755L5.2852 11.4061L16.5674 2.00087L2.29301 6.76454Z" fill="currentColor"/>
+      </svg>
     </button>
   </form>
 
