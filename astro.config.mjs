@@ -2,6 +2,7 @@ import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 import vercel from '@astrojs/vercel/static';
+import critical from 'rollup-plugin-critical';
 
 export default defineConfig({
   site: 'https://davod.es',
@@ -21,6 +22,23 @@ export default defineConfig({
     build: {
       cssMinify: true,
       minify: 'esbuild'
-    }
+    },
+    plugins: [
+      critical({
+        // La URL base de tu proyecto (puedes usar localhost en desarrollo o tu dominio)
+        criticalUrl: 'https://new-davod-es.vercel.app',
+        criticalBase: './',
+        criticalPages: [
+          { uri: '', template: 'index' },           // Home
+          { uri: 'contacto', template: 'contacto/index' }, // Otra página si quieres
+        ],
+        criticalConfig: {
+          inline: true,      // Incrusta CSS crítico en el HTML
+          extract: true,     // Extrae el resto del CSS en un archivo separado
+          width: 1200,
+          height: 1200,
+        },
+      }),
+    ],
   }
 });
