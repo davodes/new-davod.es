@@ -149,4 +149,22 @@
       });
     }
   </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.querySelector("#contact-form");
+      if (!form) return;
+
+      const observer = new IntersectionObserver((entries, obs) => {
+        if (entries[0].isIntersecting) {
+          const script = document.createElement("script");
+          script.src = "https://hcaptcha.com/1/api.js?recaptchacompact=off";
+          script.async = true;
+          document.body.appendChild(script);
+          obs.disconnect();
+        }
+      });
+
+      observer.observe(form);
+    });
+  </script>
 </div>
