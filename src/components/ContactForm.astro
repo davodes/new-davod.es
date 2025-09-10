@@ -149,27 +149,22 @@
       });
     }
   </script>
-  <!-- hCaptcha lazy load -->
   <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const form = document.querySelector("#contact-form");
-    if (!form) return;
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.querySelector("#contact-form");
+      if (!form) return;
 
-    // Observador para detectar cuando el form entra en el viewport
-    const observer = new IntersectionObserver((entries, obs) => {
-      if (entries[0].isIntersecting) {
-        // Crear script de hCaptcha solo cuando sea visible
-        const hcaptchaScript = document.createElement("script");
-        hcaptchaScript.src = "https://hcaptcha.com/1/api.js?recaptchacompat=off";
-        hcaptchaScript.async = true;
-        document.body.appendChild(hcaptchaScript);
+      const observer = new IntersectionObserver((entries, obs) => {
+        if (entries[0].isIntersecting) {
+          const script = document.createElement("script");
+          script.src = "https://hcaptcha.com/1/api.js?recaptchacompact=off";
+          script.async = true;
+          document.body.appendChild(script);
+          obs.disconnect();
+        }
+      });
 
-        // Desconectar observer para no recargar el script
-        obs.disconnect();
-      }
-    }, { threshold: 0.1 }); // threshold bajo para cargar cuando algo del form sea visible
-
-    observer.observe(form);
-  });
+      observer.observe(form);
+    });
   </script>
 </div>
