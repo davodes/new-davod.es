@@ -4,13 +4,12 @@ export interface Props {
   width?: number | string; // si quieres cambiar el ancho
   height?: number | string; // si quieres cambiar la altura
 }
-const { alt = "Logo | davod.es", width = 120, height = "auto" } = Astro.props;
+const { alt = "Logo | davod.es", width = 120 } = Astro.props;
 ---
 
 <svg
     xmlns="http://www.w3.org/2000/svg"
     width={width}
-    height={height}
     viewBox="0 0 222 88"
     fill="none"
     role="img"
