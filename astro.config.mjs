@@ -21,24 +21,26 @@ export default defineConfig({
   vite: {
     build: {
       cssMinify: true,
-      minify: 'esbuild'
-    },
-    plugins: [
-      critical({
-        // La URL base de tu proyecto (puedes usar localhost en desarrollo o tu dominio)
-        criticalUrl: 'https://new-davod-es.vercel.app',
-        criticalBase: './',
-        criticalPages: [
-          { uri: '', template: 'index' },           // Home
-          { uri: 'contacto', template: 'contacto/index' }, // Otra página si quieres
+      minify: 'esbuild',
+      rollupOptions: {
+        plugins: [
+          critical({
+            criticalUrl: 'https://new-davod-es.vercel.app', // o 'http://localhost:3000' en dev
+            criticalBase: './dist/',
+            criticalPages: [
+              { uri: '', template: 'index' }, // Home
+              { uri: 'contacto', template: 'contacto/index' }, // otra página
+            ],
+            criticalConfig: {
+              inline: true,   // CSS crítico inline
+              extract: true,  // resto del CSS en archivo separado
+              width: 1200,
+              height: 1200,
+              minify: true,
+            },
+          }),
         ],
-        criticalConfig: {
-          inline: true,      // Incrusta CSS crítico en el HTML
-          extract: true,     // Extrae el resto del CSS en un archivo separado
-          width: 1200,
-          height: 1200,
-        },
-      }),
-    ],
-  }
+      },
+    },
+  },
 });
