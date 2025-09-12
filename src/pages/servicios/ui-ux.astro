@@ -1,0 +1,210 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ServiceHero from '../../components/ServiceHero.astro';
+import ServiceBenefits from '../../components/ServiceBenefits.astro';
+import ProcessSteps from '../../components/ProcessSteps.astro';
+
+// Service data
+const heroData = {
+  title: 'Diseño UI/UX profesional',
+  subtitle: 'Diseño de experiencias',
+  description: 'Creamos interfaces intuitivas y experiencias de usuario excepcionales que convierten visitantes en clientes satisfechos.',
+  icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+      <path d="M21.5361 30.4639H30.4639V16.9639H21.5361V30.4639ZM3.25 30.4639H12.1787V26.084H3.25V30.4639ZM3.25 16.75H12.1787V3.25H3.25V16.75ZM21.5361 7.62988H30.4639V3.25H21.5361V7.62988ZM14.6787 30.5713C14.6787 31.8927 13.6075 32.9636 12.2861 32.9639H3.14258C1.82117 32.9637 0.75 31.8927 0.75 30.5713V25.9775C0.75 24.6561 1.82117 23.5841 3.14258 23.584H12.2861C13.6075 23.5842 14.6787 24.6561 14.6787 25.9775V30.5713ZM32.9639 30.5713C32.9639 31.8928 31.8928 32.9639 30.5713 32.9639H21.4287C20.1072 32.9639 19.0361 31.8928 19.0361 30.5713V16.8574C19.0361 15.5359 20.1072 14.4639 21.4287 14.4639H30.5713C31.8928 14.4639 32.9639 15.5359 32.9639 16.8574V30.5713ZM14.6787 16.8574C14.6786 18.1787 13.6074 19.2498 12.2861 19.25H3.14258C1.82126 19.2498 0.75015 18.1787 0.75 16.8574V3.14258C0.750151 1.82126 1.82126 0.750151 3.14258 0.75H12.2861C13.6074 0.750226 14.6786 1.82131 14.6787 3.14258V16.8574ZM32.9639 7.7373C32.9638 9.05877 31.8928 10.1299 30.5713 10.1299H21.4287C20.1072 10.1299 19.0362 9.05877 19.0361 7.7373V3.14258C19.0363 1.82117 20.1073 0.75 21.4287 0.75H30.5713C31.8927 0.75 32.9637 1.82117 32.9639 3.14258V7.7373Z" fill="currentColor"/>
+    </svg>`,
+  gradient: 'bg-gradient-to-br from-dark-950 via-dark-900 to-primary-950'
+};
+
+const benefits = [
+  {
+    icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+    </svg>`,
+    title: 'Experiencia intuitiva',
+    description: 'Diseñamos interfaces que tus usuarios entienden al instante, reduciendo la curva de aprendizaje y aumentando la satisfacción.'
+  },
+  {
+    icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+    </svg>`,
+    title: 'Mayor conversión',
+    description: 'Optimizamos cada elemento para guiar al usuario hacia la acción deseada, mejorando significativamente tus tasas de conversión.'
+  },
+  {
+    icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+    </svg>`,
+    title: 'Responsive design',
+    description: 'Todos nuestros diseños se adaptan perfectamente a cualquier dispositivo, garantizando una experiencia consistente.'
+  },
+  {
+    icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4V2a1 1 0 011-1h8a1 1 0 011 1v2m0 0V1a1 1 0 011-1h2a1 1 0 011 1v18a1 1 0 01-1 1H4a1 1 0 01-1-1V4a1 1 0 011-1h2a1 1 0 011 1v3m0 0h8"></path>
+    </svg>`,
+    title: 'Research y testing',
+    description: 'Basamos nuestras decisiones en investigación real de usuarios y pruebas constantes para garantizar la efectividad.'
+  },
+  {
+    icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+    </svg>`,
+    title: 'Marca coherente',
+    description: 'Integramos tu identidad de marca en cada elemento del diseño para crear una experiencia memorable y reconocible.'
+  },
+  {
+    icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+    </svg>`,
+    title: 'Performance optimizado',
+    description: 'Diseñamos pensando en la velocidad de carga y el rendimiento para ofrecer experiencias fluidas y rápidas.'
+  }
+];
+
+const processSteps = [
+  {
+    number: '01',
+    title: 'Investigación',
+    description: 'Analizamos tu audiencia, competencia y objetivos para crear una base sólida de diseño.',
+    duration: '1-2 semanas'
+  },
+  {
+    number: '02',
+    title: 'Wireframing',
+    description: 'Creamos la estructura y flujo de navegación antes de definir el aspecto visual.',
+    duration: '1 semana'
+  },
+  {
+    number: '03',
+    title: 'Diseño UI',
+    description: 'Desarrollamos la interfaz visual con todos los elementos gráficos y interacciones.',
+    duration: '2-3 semanas'
+  },
+  {
+    number: '04',
+    title: 'Testing y entrega',
+    description: 'Probamos la usabilidad y entregamos todos los assets listos para desarrollo.',
+    duration: '1 semana'
+  }
+];
+---
+
+<Layout 
+  title="Diseño UI/UX profesional | Experiencias que convierten"
+  description="Servicios profesionales de diseño UI/UX. Creamos interfaces intuitivas y experiencias de usuario que aumentan conversiones y satisfacción del cliente."
+>
+  <Header />
+  
+  <main class="pt-16 md:pt-20">
+    <ServiceHero {...heroData} />
+    
+    <!-- Service Description -->
+    <section class="py-20 bg-dark-900">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto">
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="animate-slide-up">
+              <h2 class="text-3xl font-bold text-white mb-6">
+                ¿Por qué es importante el
+                <span class="bg-gradient-to-r from-primary-400 to-secondary-400 bg-clip-text text-transparent">
+                  diseño UI/UX?
+                </span>
+              </h2>
+              <p class="text-lg text-gray-300 leading-relaxed mb-6">
+                El 88% de los usuarios abandonan un sitio web debido a una mala experiencia de usuario. 
+                Un diseño UI/UX profesional no es solo estética, es estrategia de negocio.
+              </p>
+              <p class="text-gray-300 leading-relaxed">
+                Nuestro enfoque combina investigación de usuarios, principios de psicología cognitiva 
+                y mejores prácticas de diseño para crear interfaces que no solo se ven bien, sino que 
+                funcionan excepcionalmente bien para tus usuarios y tu negocio.
+              </p>
+            </div>
+            <div class="animate-scale-in">
+              <div class="bg-gradient-to-br from-primary-500/20 to-secondary-500/20 rounded-2xl p-8 border border-primary-500/30">
+                <div class="space-y-6">
+                  <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 bg-primary-500 rounded-full flex items-center justify-center">
+                      <span class="text-white font-bold text-lg">88%</span>
+                    </div>
+                    <div>
+                      <p class="text-white font-semibold">de usuarios abandonan</p>
+                      <p class="text-gray-400 text-sm">sitios con mala UX</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 bg-secondary-500 rounded-full flex items-center justify-center">
+                      <span class="text-white font-bold text-lg">75%</span>
+                    </div>
+                    <div>
+                      <p class="text-white font-semibold">mayor conversión</p>
+                      <p class="text-gray-400 text-sm">con buen diseño UX</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 bg-accent-500 rounded-full flex items-center justify-center">
+                      <span class="text-white font-bold text-lg">200%</span>
+                    </div>
+                    <div>
+                      <p class="text-white font-semibold">ROI promedio</p>
+                      <p class="text-gray-400 text-sm">en inversión UX</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <ServiceBenefits 
+      title="Beneficios de Nuestro Diseño UI/UX"
+      benefits={benefits}
+    />
+    
+    <ProcessSteps steps={processSteps} />
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-br from-dark-950 via-dark-900 to-primary-950 relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-r from-primary-500/10 to-secondary-500/10"></div>
+      <div class="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6">
+            ¿Listo para transformar tu
+            <span class="bg-gradient-to-r from-primary-400 to-secondary-400 bg-clip-text text-transparent">
+              experiencia digital?
+            </span>
+          </h2>
+          <p class="text-xl text-gray-300 mb-8 leading-relaxed">
+            Nuestro equipo de diseñadores UX/UI está listo para crear la experiencia que tus usuarios recordarán.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-6 justify-center">
+            <a 
+              href="/contacto"
+              class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-full hover:shadow-lg hover:shadow-primary-500/25 transition-all duration-200 hover:scale-105"
+            >
+              Iniciar proyecto UI/UX
+              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
+            </a>
+            <a 
+              href="/proyectos"
+              class="inline-flex items-center justify-center px-8 py-4 border border-gray-600 text-gray-300 font-semibold rounded-full hover:border-primary-500 hover:text-primary-300 transition-all duration-200"
+            >
+              Ver portfolio
+              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

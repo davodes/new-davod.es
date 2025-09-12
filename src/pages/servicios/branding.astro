@@ -1,0 +1,285 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ServiceHero from '../../components/ServiceHero.astro';
+import ServiceBenefits from '../../components/ServiceBenefits.astro';
+import ProcessSteps from '../../components/ProcessSteps.astro';
+
+// Service data
+const heroData = {
+  title: 'Branding e identidad visual',
+  subtitle: 'Diseño de marca',
+  description: 'Creamos identidades visuales memorables que conectan emocionalmente con tu audiencia y diferencia tu marca.',
+  icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z"/>
+  </svg>`,
+  gradient: 'bg-gradient-to-br from-dark-950 via-purple-950 to-pink-950'
+};
+
+const benefits = [
+  {
+    icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+    </svg>`,
+    title: 'Conexión emocional',
+    description: 'Creamos marcas que generan vínculos emocionales profundos con tu audiencia objetivo.'
+  },
+  {
+    icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+    </svg>`,
+    title: 'Reconocimiento inmediato',
+    description: 'Diseñamos identidades distintivas que se reconocen instantáneamente en cualquier contexto.'
+  },
+  {
+    icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+    </svg>`,
+    title: 'Diferenciación competitiva',
+    description: 'Te destacamos de la competencia con una propuesta visual única y memorable.'
+  },
+  {
+    icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+    </svg>`,
+    title: 'Coherencia visual',
+    description: 'Aseguramos consistencia en todos los puntos de contacto de tu marca.'
+  },
+  {
+    icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/>
+    </svg>`,
+    title: 'Valor percibido',
+    description: 'Una marca fuerte incrementa significativamente el valor percibido de tus productos y servicios.'
+  },
+  {
+    icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+    </svg>`,
+    title: 'Fidelidad de cliente',
+    description: 'Las marcas sólidas generan mayor lealtad y advocacy por parte de los clientes.'
+  }
+];
+
+const processSteps = [
+  {
+    number: '01',
+    title: 'Discovery & research',
+    description: 'Investigamos tu mercado, competencia y audiencia para entender el contexto de tu marca.',
+    duration: '1-2 semanas'
+  },
+  {
+    number: '02',
+    title: 'Estrategia de marca',
+    description: 'Definimos personalidad, valores, posicionamiento y propuesta de valor única.',
+    duration: '1 semana'
+  },
+  {
+    number: '03',
+    title: 'Diseño de identidad',
+    description: 'Creamos logo, paleta de colores, tipografía y todos los elementos visuales.',
+    duration: '2-3 semanas'
+  },
+  {
+    number: '04',
+    title: 'Manual de marca',
+    description: 'Entregamos guías completas para mantener la coherencia en todas las aplicaciones.',
+    duration: '1 semana'
+  }
+];
+---
+
+<Layout 
+  title="Branding & Identidad Visual Profesional | Marcas Memorables"
+  description="Servicios profesionales de branding e identidad visual. Creamos marcas memorables que conectan emocionalmente con tu audiencia."
+>
+  <Header />
+  
+  <main class="pt-16 md:pt-20">
+    <ServiceHero {...heroData} />
+    
+    <!-- Brand Elements Section -->
+    <section class="py-20 bg-dark-900">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto">
+          <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold text-white mb-6">
+              Elementos de
+              <span class="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                identidad visual
+              </span>
+            </h2>
+            <p class="text-xl text-gray-300 leading-relaxed">
+              Cada elemento de tu marca trabaja en conjunto para crear una identidad cohesiva
+            </p>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                title: 'Logo y símbolo',
+                description: 'Diseño distintivo y memorable',
+                color: 'from-purple-500 to-purple-700',
+                icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z"/>
+                </svg>`
+              },
+              {
+                title: 'Paleta de colores',
+                description: 'Colores que transmiten tu personalidad',
+                color: 'from-pink-500 to-rose-700',
+                icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4z"/>
+                </svg>`
+              },
+              {
+                title: 'Tipografía',
+                description: 'Fuentes que refuerzan tu mensaje',
+                color: 'from-indigo-500 to-indigo-700',
+                icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                </svg>`
+              },
+              {
+                title: 'Iconografía',
+                description: 'Iconos y elementos gráficos únicos',
+                color: 'from-teal-500 to-teal-700',
+                icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>`
+              },
+              {
+                title: 'Patrones y texturas',
+                description: 'Elementos decorativos distintivos',
+                color: 'from-orange-500 to-orange-700',
+                icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                </svg>`
+              },
+              {
+                title: 'Aplicaciones',
+                description: 'Adaptación a diferentes formatos',
+                color: 'from-green-500 to-green-700',
+                icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                </svg>`
+              }
+            ].map((element, index) => (
+              <div 
+                class="text-center group animate-fade-in"
+                style={`animation-delay: ${index * 0.1}s`}
+              >
+                <div class={`w-20 h-20 bg-gradient-to-r ${element.color} rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                  <span set:html={element.icon} class="text-white"></span>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-3">{element.title}</h3>
+                <p class="text-gray-300 leading-relaxed">{element.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <ServiceBenefits 
+      title="Beneficios de una identidad visual sólida"
+      benefits={benefits}
+    />
+    
+    <ProcessSteps steps={processSteps} />
+
+    <!-- Portfolio Preview -->
+    <section class="py-20 bg-dark-900">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold text-white mb-6">
+            Casos de
+            <span class="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+              éxito recientes
+            </span>
+          </h2>
+          <p class="text-xl text-gray-300 leading-relaxed">
+            Algunas de las marcas que hemos tenido el honor de crear
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {[
+            {
+              name: 'La Llar del Vi',
+              industry: 'Tienda de vinos',
+              description: 'Identidad moderna para tienda de vinos',
+              color: 'from-blue-500 to-cyan-500'
+            },
+            {
+              name: 'Eric Blanco',
+              industry: 'Letrado',
+              description: 'Branding para Eric Blanco, letrado',
+              color: 'from-green-500 to-emerald-500'
+            },
+            {
+              name: 'GreenSEC',
+              industry: 'Seguridad informática',
+              description: 'Marca para empresa de ciberseguridad',
+              color: 'from-orange-500 to-red-500'
+            }
+          ].map((project, index) => (
+            <div 
+              class="bg-dark-800/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-8 text-center hover:bg-dark-700/50 hover:border-purple-500/50 transition-all duration-300 hover:scale-105 animate-fade-in"
+              style={`animation-delay: ${index * 0.2}s`}
+            >
+              <div class={`w-24 h-24 bg-gradient-to-r ${project.color} rounded-2xl flex items-center justify-center mx-auto mb-6`}>
+                <span class="text-white font-bold text-2xl">{project.name.substring(0, 2)}</span>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-2">{project.name}</h3>
+              <p class="text-purple-400 text-sm font-medium mb-4">{project.industry}</p>
+              <p class="text-gray-300 leading-relaxed">{project.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-br from-dark-950 via-purple-950 to-pink-950 relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10"></div>
+      <div class="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6">
+            ¿Estás listo para crear una marca
+            <span class="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+              memorable?
+            </span>
+          </h2>
+          <p class="text-xl text-gray-300 mb-8 leading-relaxed">
+            Trabajemos juntos para crear una identidad visual que impulse el crecimiento de tu negocio.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-6 justify-center">
+            <a 
+              href="/contacto"
+              class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold rounded-full hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-200 hover:scale-105"
+            >
+              Comenzar proyecto de branding
+              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </a>
+            <a 
+              href="/portfolio/branding"
+              class="inline-flex items-center justify-center px-8 py-4 border border-gray-600 text-gray-300 font-semibold rounded-full hover:border-purple-500 hover:text-purple-300 transition-all duration-200"
+            >
+              Ver portfolio completo
+              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

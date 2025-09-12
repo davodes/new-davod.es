@@ -1,0 +1,226 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ServiceHero from '../../components/ServiceHero.astro';
+import ServiceBenefits from '../../components/ServiceBenefits.astro';
+import ProcessSteps from '../../components/ProcessSteps.astro';
+
+// Service data
+const heroData = {
+  title: 'Consultoría Digital Estratégica',
+  subtitle: 'Estrategia Digital',
+  description: 'Transformamos tu visión en una estrategia digital ganadora que optimiza procesos y maximiza resultados.',
+  icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+  </svg>`,
+  gradient: 'bg-gradient-to-br from-dark-950 via-dark-900 to-accent-950'
+};
+
+const benefits = [
+  {
+    icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+    </svg>`,
+    title: 'Crecimiento Estratégico',
+    description: 'Desarrollamos estrategias personalizadas que aceleran el crecimiento de tu negocio digital.'
+  },
+  {
+    icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+    </svg>`,
+    title: 'ROI Optimizado',
+    description: 'Maximizamos el retorno de inversión identificando oportunidades de mejora y optimización.'
+  },
+  {
+    icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+    </svg>`,
+    title: 'Experiencia del Usuario',
+    description: 'Optimizamos cada punto de contacto para crear experiencias excepcionales que fidelizan clientes.'
+  },
+  {
+    icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+    </svg>`,
+    title: 'Optimización de Procesos',
+    description: 'Analizamos y mejoramos los procesos internos para aumentar la eficiencia operativa.'
+  },
+  {
+    icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+    </svg>`,
+    title: 'Validación de Ideas',
+    description: 'Validamos conceptos y propuestas antes de la implementación para reducir riesgos.'
+  },
+  {
+    icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+    </svg>`,
+    title: 'Roadmap Tecnológico',
+    description: 'Creamos hojas de ruta claras para la implementación de soluciones tecnológicas.'
+  }
+];
+
+const processSteps = [
+  {
+    number: '01',
+    title: 'Diagnóstico Inicial',
+    description: 'Auditoria completa de tu situación actual, identificando fortalezas y oportunidades de mejora.',
+    duration: '1 semana'
+  },
+  {
+    number: '02',
+    title: 'Análisis y Estrategia',
+    description: 'Desarrollamos una estrategia personalizada basada en datos y mejores prácticas de la industria.',
+    duration: '2 semanas'
+  },
+  {
+    number: '03',
+    title: 'Plan de Implementación',
+    description: 'Creamos un roadmap detallado con fases, timelines y métricas de éxito claras.',
+    duration: '1 semana'
+  },
+  {
+    number: '04',
+    title: 'Acompañamiento',
+    description: 'Te acompañamos durante la implementación con revisiones y ajustes continuos.',
+    duration: 'Ongoing'
+  }
+];
+---
+
+<Layout 
+  title="Consultoría Digital Estratégica | Transformación Digital Efectiva"
+  description="Servicios de consultoría digital estratégica. Transformamos tu visión en estrategias digitales ganadoras que optimizan procesos y maximizan resultados."
+>
+  <Header />
+  
+  <main class="pt-16 md:pt-20">
+    <ServiceHero {...heroData} />
+    
+    <!-- Expertise Section -->
+    <section class="py-20 bg-dark-900">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto">
+          <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold text-white mb-6">
+              Áreas de
+              <span class="bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">
+                Especialización
+              </span>
+            </h2>
+            <p class="text-xl text-gray-300 leading-relaxed">
+              Nuestro expertise abarca todas las áreas críticas de la transformación digital
+            </p>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                title: 'Estrategia Digital',
+                description: 'Definimos tu hoja de ruta digital completa',
+                icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                </svg>`
+              },
+              {
+                title: 'Optimización UX',
+                description: 'Mejoramos la experiencia de usuario en todos los touchpoints',
+                icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                </svg>`
+              },
+              {
+                title: 'Análisis de Datos',
+                description: 'Convertimos datos en insights accionables',
+                icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                </svg>`
+              },
+              {
+                title: 'Automatización',
+                description: 'Automatizamos procesos para maximizar la eficiencia',
+                icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                </svg>`
+              },
+              {
+                title: 'Escalabilidad',
+                description: 'Preparamos tu negocio para el crecimiento sostenible',
+                icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                </svg>`
+              },
+              {
+                title: 'Seguridad Digital',
+                description: 'Protegemos tu infraestructura y datos críticos',
+                icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                </svg>`
+              }
+            ].map((area, index) => (
+              <div 
+                class="bg-dark-800/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-6 hover:bg-dark-700/50 hover:border-accent-500/50 transition-all duration-300 hover:scale-105 animate-fade-in"
+                style={`animation-delay: ${index * 0.1}s`}
+              >
+                <div class="text-accent-400 mb-4">
+                  <span set:html={area.icon}></span>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-3">{area.title}</h3>
+                <p class="text-gray-300 leading-relaxed">{area.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <ServiceBenefits 
+      title="Beneficios de Nuestra Consultoría Digital"
+      benefits={benefits}
+    />
+    
+    <ProcessSteps steps={processSteps} />
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-br from-dark-950 via-dark-900 to-accent-950 relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-r from-accent-500/10 to-primary-500/10"></div>
+      <div class="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6">
+            ¿Necesitas Orientación
+            <span class="bg-gradient-to-r from-accent-400 to-primary-400 bg-clip-text text-transparent">
+              Estratégica?
+            </span>
+          </h2>
+          <p class="text-xl text-gray-300 mb-8 leading-relaxed">
+            Agenda una consulta gratuita y descubre cómo podemos acelerar tu transformación digital.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-6 justify-center">
+            <a 
+              href="/contacto"
+              class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-accent-500 to-accent-600 text-white font-semibold rounded-full hover:shadow-lg hover:shadow-accent-500/25 transition-all duration-200 hover:scale-105"
+            >
+              Agendar Consulta Gratuita
+              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+              </svg>
+            </a>
+            <a 
+              href="/casos-exito"
+              class="inline-flex items-center justify-center px-8 py-4 border border-gray-600 text-gray-300 font-semibold rounded-full hover:border-accent-500 hover:text-accent-300 transition-all duration-200"
+            >
+              Ver Casos de Éxito
+              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

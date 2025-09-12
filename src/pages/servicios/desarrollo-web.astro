@@ -1,0 +1,190 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ServiceHero from '../../components/ServiceHero.astro';
+import ServiceBenefits from '../../components/ServiceBenefits.astro';
+import ProcessSteps from '../../components/ProcessSteps.astro';
+
+// Service data
+const heroData = {
+  title: 'Desarrollo web profesional',
+  subtitle: 'Desarrollo frontend & backend',
+  description: 'Desarrollamos sitios web y aplicaciones modernas, rápidas y escalables que impulsan el crecimiento de tu negocio.',
+  icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+  </svg>`,
+  gradient: 'bg-gradient-to-br from-dark-950 via-dark-900 to-secondary-950'
+};
+
+const benefits = [
+  {
+    icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+    </svg>`,
+    title: 'Rendimiento optimizado',
+    description: 'Sitios web ultrarrápidos optimizados para Core Web Vitals y mejores rankings en Google.'
+  },
+  {
+    icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+    </svg>`,
+    title: 'Responsive design',
+    description: 'Diseño adaptativo que funciona perfectamente en todos los dispositivos y tamaños de pantalla.'
+  },
+  {
+    icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+    </svg>`,
+    title: 'Seguridad avanzada',
+    description: 'Implementamos las mejores prácticas de seguridad para proteger tu sitio web y datos de usuarios.'
+  },
+  {
+    icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+    </svg>`,
+    title: 'SEO Optimizado',
+    description: 'Código limpio y optimizado para motores de búsqueda que mejora tu visibilidad online.'
+  },
+  {
+    icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"></path>
+    </svg>`,
+    title: 'Escalabilidad',
+    description: 'Arquitectura modular que crece con tu negocio sin comprometer el rendimiento.'
+  },
+  {
+    icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+    </svg>`,
+    title: 'Mantenimiento',
+    description: 'Soporte técnico continuo y actualizaciones para mantener tu sitio siempre funcionando.'
+  }
+];
+
+const processSteps = [
+  {
+    number: '01',
+    title: 'Análisis y planificación',
+    description: 'Definimos arquitectura, tecnologías y roadmap del proyecto basado en tus necesidades.',
+    duration: '1 semana'
+  },
+  {
+    number: '02',
+    title: 'Desarrollo frontend',
+    description: 'Implementamos la interfaz de usuario con las últimas tecnologías y mejores prácticas.',
+    duration: '2-4 semanas'
+  },
+  {
+    number: '03',
+    title: 'Desarrollo backend',
+    description: 'Creamos la lógica de servidor, APIs y base de datos para funcionalidad completa.',
+    duration: '2-3 semanas'
+  },
+  {
+    number: '04',
+    title: 'Testing y deploy',
+    description: 'Pruebas exhaustivas y despliegue en producción con monitoreo continuo.',
+    duration: '1 semana'
+  }
+];
+---
+
+<Layout 
+  title="Desarrollo Web Profesional | Sitios Web Modernos y Escalables"
+  description="Servicios de desarrollo web profesional. Creamos sitios web rápidos, seguros y optimizados que impulsan el crecimiento de tu negocio."
+>
+  <Header />
+  
+  <main class="pt-16 md:pt-20">
+    <ServiceHero {...heroData} />
+    
+    <!-- Technologies Section -->
+    <section class="py-20 bg-dark-900">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto">
+          <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold text-white mb-6">
+              Tecnologías que
+              <span class="bg-gradient-to-r from-primary-400 to-secondary-400 bg-clip-text text-transparent">
+                dominamos
+              </span>
+            </h2>
+            <p class="text-xl text-gray-300 leading-relaxed">
+              Utilizamos las tecnologías más modernas y confiables del mercado
+            </p>
+          </div>
+          
+          <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+            {[
+              { name: 'React', color: 'from-blue-400 to-blue-600' },
+              { name: 'Vue.js', color: 'from-green-400 to-green-600' },
+              { name: 'Astro', color: 'from-orange-400 to-orange-600' },
+              { name: 'Node.js', color: 'from-green-500 to-green-700' },
+              { name: 'TypeScript', color: 'from-blue-500 to-blue-700' },
+              { name: 'Tailwind', color: 'from-cyan-400 to-cyan-600' }
+            ].map((tech, index) => (
+              <div 
+                class="text-center group animate-fade-in"
+                style={`animation-delay: ${index * 0.1}s`}
+              >
+                <div class={`w-16 h-16 bg-gradient-to-r ${tech.color} rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                  <span class="text-white font-bold text-lg">{tech.name.substring(0, 2)}</span>
+                </div>
+                <p class="text-gray-300 font-medium">{tech.name}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <ServiceBenefits 
+      title="Ventajas de nuestro desarrollo web"
+      benefits={benefits}
+    />
+    
+    <ProcessSteps steps={processSteps} />
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-br from-dark-950 via-dark-900 to-secondary-950 relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-r from-secondary-500/10 to-primary-500/10"></div>
+      <div class="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6">
+            ¿Necesitas un sitio web
+            <span class="bg-gradient-to-r from-secondary-400 to-primary-400 bg-clip-text text-transparent">
+              de alto rendimiento?
+            </span>
+          </h2>
+          <p class="text-xl text-gray-300 mb-8 leading-relaxed">
+            Nuestro equipo de desarrolladores expertos está listo para crear la solución web perfecta para tu negocio.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-6 justify-center">
+            <a 
+              href="/contacto"
+              class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-secondary-500 to-secondary-600 text-white font-semibold rounded-full hover:shadow-lg hover:shadow-secondary-500/25 transition-all duration-200 hover:scale-105"
+            >
+              Solicitar presupuesto
+              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
+            </a>
+            <a 
+              href="/proyectos"
+              class="inline-flex items-center justify-center px-8 py-4 border border-gray-600 text-gray-300 font-semibold rounded-full hover:border-secondary-500 hover:text-secondary-300 transition-all duration-200"
+            >
+              Ver proyectos web
+              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
