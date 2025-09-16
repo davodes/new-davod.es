@@ -8,8 +8,8 @@ import ProcessSteps from '../../components/ProcessSteps.astro';
 
 // Service data
 const heroData = {
-  title: 'Consultoría Digital Estratégica',
-  subtitle: 'Estrategia Digital',
+  title: 'Consultoría digital estratégica',
+  subtitle: 'Estrategia digital',
   description: 'Transformamos tu visión en una estrategia digital ganadora que optimiza procesos y maximiza resultados.',
   icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 34" fill="none">
       <path d="M25.8217 30.6302H29.0355V15.9876H25.8217V30.6302ZM14.3929 30.6302H17.6068V19.4153H14.3929V30.6302ZM2.96423 30.6302H6.1781V22.8441H2.96423V30.6302ZM23.0355 1.70245C23.2788 1.05659 24 0.729918 24.6459 0.972962L29.5609 2.82452C30.2049 3.06727 30.5313 3.78496 30.2914 4.42999L28.4633 9.34406C28.2226 9.99093 27.5027 10.3208 26.8558 10.0804C26.2089 9.83968 25.879 9.11989 26.1195 8.47296L26.8988 6.37628L3.35193 17.0862C2.72356 17.372 1.9825 17.0944 1.69666 16.4661C1.41086 15.8377 1.68837 15.0967 2.31677 14.8109L25.8617 4.10285L23.765 3.31281C23.1191 3.06946 22.7924 2.34839 23.0355 1.70245ZM8.6781 31.8802C8.67801 32.5705 8.1184 33.1302 7.4281 33.1302H1.71423C1.02393 33.1302 0.464321 32.5705 0.464233 31.8802V22.7376C0.464233 22.103 0.716657 21.494 1.16541 21.0452L1.34021 20.886C1.76596 20.5371 2.30155 20.3441 2.85681 20.3441H6.28552C6.84077 20.3441 7.37634 20.5372 7.80212 20.886L7.97791 21.0452L8.13708 21.221C8.48575 21.6467 8.6781 22.1825 8.6781 22.7376V31.8802ZM20.1068 31.8802C20.1067 32.5705 19.5471 33.1302 18.8568 33.1302H13.1429C12.4526 33.1302 11.893 32.5705 11.8929 31.8802V19.3089C11.8929 18.6743 12.1454 18.0653 12.5941 17.6165L12.7689 17.4573C13.1947 17.1085 13.7303 16.9154 14.2855 16.9153H17.7142C18.2695 16.9153 18.805 17.1085 19.2308 17.4573L19.4066 17.6165L19.5648 17.7923C19.9137 18.2181 20.1068 18.7536 20.1068 19.3089V31.8802ZM31.5355 31.8802C31.5354 32.5705 30.9758 33.1302 30.2855 33.1302H24.5717C23.8814 33.1302 23.3217 32.5705 23.3217 31.8802V15.8802C23.3217 15.2456 23.5732 14.6365 24.0219 14.1878C24.4706 13.7391 25.0796 13.4876 25.7142 13.4876H29.1429C29.7774 13.4876 30.3857 13.7393 30.8344 14.1878C31.2831 14.6366 31.5355 15.2456 31.5355 15.8802V31.8802Z" fill="currentColor"/>
@@ -22,42 +22,42 @@ const benefits = [
     icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
     </svg>`,
-    title: 'Crecimiento Estratégico',
+    title: 'Crecimiento estratégico',
     description: 'Desarrollamos estrategias personalizadas que aceleran el crecimiento de tu negocio digital.'
   },
   {
     icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
     </svg>`,
-    title: 'ROI Optimizado',
+    title: 'ROI optimizado',
     description: 'Maximizamos el retorno de inversión identificando oportunidades de mejora y optimización.'
   },
   {
     icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
     </svg>`,
-    title: 'Experiencia del Usuario',
+    title: 'Experiencia del usuario',
     description: 'Optimizamos cada punto de contacto para crear experiencias excepcionales que fidelizan clientes.'
   },
   {
     icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
     </svg>`,
-    title: 'Optimización de Procesos',
+    title: 'Optimización de procesos',
     description: 'Analizamos y mejoramos los procesos internos para aumentar la eficiencia operativa.'
   },
   {
     icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
     </svg>`,
-    title: 'Validación de Ideas',
+    title: 'Validación de ideas',
     description: 'Validamos conceptos y propuestas antes de la implementación para reducir riesgos.'
   },
   {
     icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
     </svg>`,
-    title: 'Roadmap Tecnológico',
+    title: 'Roadmap tecnológico',
     description: 'Creamos hojas de ruta claras para la implementación de soluciones tecnológicas.'
   }
 ];
@@ -65,19 +65,19 @@ const benefits = [
 const processSteps = [
   {
     number: '01',
-    title: 'Diagnóstico Inicial',
+    title: 'Diagnóstico inicial',
     description: 'Auditoria completa de tu situación actual, identificando fortalezas y oportunidades de mejora.',
     duration: '1 semana'
   },
   {
     number: '02',
-    title: 'Análisis y Estrategia',
+    title: 'Análisis y estrategia',
     description: 'Desarrollamos una estrategia personalizada basada en datos y mejores prácticas de la industria.',
     duration: '2 semanas'
   },
   {
     number: '03',
-    title: 'Plan de Implementación',
+    title: 'Plan de implementación',
     description: 'Creamos un roadmap detallado con fases, timelines y métricas de éxito claras.',
     duration: '1 semana'
   },
@@ -107,7 +107,7 @@ const processSteps = [
             <h2 class="text-3xl font-bold text-white mb-6">
               Áreas de
               <span class="bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">
-                Especialización
+                especialización
               </span>
             </h2>
             <p class="text-xl text-gray-300 leading-relaxed">
@@ -118,7 +118,7 @@ const processSteps = [
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                title: 'Estrategia Digital',
+                title: 'Estrategia digital',
                 description: 'Definimos tu hoja de ruta digital completa',
                 icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
@@ -132,7 +132,7 @@ const processSteps = [
                 </svg>`
               },
               {
-                title: 'Análisis de Datos',
+                title: 'Análisis de datos',
                 description: 'Convertimos datos en insights accionables',
                 icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
@@ -153,7 +153,7 @@ const processSteps = [
                 </svg>`
               },
               {
-                title: 'Seguridad Digital',
+                title: 'Seguridad digital',
                 description: 'Protegemos tu infraestructura y datos críticos',
                 icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
