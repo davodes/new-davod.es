@@ -65,22 +65,18 @@ const services = [
           class="group bg-dark-900/50 backdrop-blur-sm border border-dark-900 rounded-2xl p-8 hover:bg-dark-800/50 hover:border-primary-600/50 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-primary-600/10"
           style={`animation-delay: ${index * 0.1}s`}
         >
-          <!-- Icon -->
           <div class="text-primary-400 mb-6 group-hover:text-primary-300 transition-colors duration-200">
             <Fragment set:html={service.icon} />
           </div>
 
-          <!-- Title -->
           <h3 class="text-xl font-bold text-white mb-4 group-hover:text-primary-100 transition-colors duration-200">
             {service.title}
           </h3>
 
-          <!-- Description -->
           <p class="text-gray-300 mb-6 leading-relaxed">
             {service.description}
           </p>
 
-          <!-- Features -->
           <ul class="space-y-2">
             {service.features.map((feature) => (
               <li class="flex items-center text-sm text-gray-400">
@@ -103,9 +99,9 @@ const services = [
         class="nav-link justify-center"
       >
         Ver todos los servicios
-        <!-- <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-        </svg> -->
+        </svg>
       </a>
     </div>
     ))}
